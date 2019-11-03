@@ -24,9 +24,9 @@ define('CNFGR_META_DESCRIPTION', 'A plataforma de gerenciamento de hospedagem de
         $perm_link = get_the_permalink();
         $thumb = get_the_post_thumbnail_url($postid);
         ?>
-        <div class="col-12 col-xl-6 text-center">
+        <div class="col-12 col-xl-6">
           <a href=<?php echo $perm_link; ?>>
-          <div  class="card-podcast" style="background-image:linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(51, 51, 51, 0.59)), url('<?php echo $thumb; ?>');">
+          <div  class="card-podcast" style="background-image:linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(51, 51, 51, 0.59)), url('<?php echo $thumb; ?>');">
               <!-- <div class="overlay">
               </div> -->
               <p class="podcast-name"><?php echo $name; ?></p>
