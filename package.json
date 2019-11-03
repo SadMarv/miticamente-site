@@ -1,0 +1,41 @@
+{
+  "name": "miticamente-wordpress-theme",
+  "version": "1.0.0",
+  "description": "Theme for Miticamente wordpress",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SadMarv/miticamente-site.git"
+  },
+  "author": "Configr",
+  "license": "ISC",
+  "dependencies": {
+    "@cedx/gulp-php-minify": "^9.1.1",
+    "@fortawesome/fontawesome-free": "^5.7.2",
+    "bootstrap": "^4.3.1",
+    "chai": "^4.2.0",
+    "cheerio": "^1.0.0-rc.2",
+    "cucumber": "^5.1.0",
+    "event-stream": "^4.0.1",
+    "gulp": "^4.0.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-concat-css": "^3.1.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-svg-sprite": "^1.5.0",
+    "gulp-uglify": "^3.0.1",
+    "gulp-uglifycss": "^1.1.0",
+    "gulp-util": "^3.0.8",
+    "jquery": "^3.3.1",
+    "jquery-mask-plugin": "^1.14.15",
+    "popper.js": "^1.14.7",
+    "pump": "^3.0.0",
+    "slick-carousel": "^1.8.1",
+    "theaterjs": "^3.2.0"
+  }
+}
