@@ -1,0 +1,19 @@
+/* pre thirdparty imports */
+
+@import "variables";
+
+/* thirdparty imports */
+
+@import "bootstrap";
+@import "fontawesome";
+@import "slick.scss";
+@import "slick-theme.scss";
+@import "solid";
+@import "brands";
+
+/* custom styles */
+
+@import "global";
+@import "navbar";
+@import "home";
+@import "footer";
