@@ -40,7 +40,14 @@
   src: url('../fonts/carlmarx-bold.woff2');
 }
 
-$primary: #00C0F3;
+@font-face {
+  font-family: 'bowlby';
+  font-weight: 900;
+  font-style: normal;
+  src: url('../fonts/BowlbyOneSC-Regular.ttf');
+}
+
+$primary: #76bc1c;
 
 $fa-font-path: '../fonts';
 
@@ -71,7 +78,7 @@ $thumb-border: 1px solid #777;
 $shadow-size: -8px;
 $fit-thumb-in-slider: -8px;
 
-@mixin titles-lato($font,$font-size,$color){
+@mixin title($font,$font-size,$color){
   font-family: $font, sans-serif;
   font-size: $font-size;
   color: $color;
@@ -112,9 +119,10 @@ $fit-thumb-in-slider: -8px;
 
 @mixin link-text($color){
   color:$color;
+  font-weight: 900;
 
   &:hover {
-    color: $primary;
+    color: #ffbf00;
   }
 }
 // card defult

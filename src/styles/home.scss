@@ -1,0 +1,48 @@
+$position: 25px;
+
+.container{
+  &.home{
+    .card-podcast{
+      margin-top: $position;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 490px;
+      height: 275px;
+      background-size: cover;
+      border-radius: 10px;
+      transition: 500ms;
+      opacity: .9;
+      @media (max-width: 768px){
+        width: 280px;
+        height: 150px;
+      }
+      &:hover{
+        box-shadow: 0 14px 28px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .20);
+        transition: 500ms;
+        opacity: 2.0;
+      }
+      .podcast-name{
+        @include title(bowlby, 16px, $primary);
+        text-align: left;
+        font-weight: 900;
+        position: absolute;
+        top: 230px;
+        z-index: 100;
+        padding-left: 30px;
+        padding-right: 50px;
+        text-shadow: 2px 2px 2px #000;
+      }
+      .podcast-title{
+        @include title(bowlby, 16px, #FFF);
+        text-align: left;
+        font-weight: 900;
+        position: absolute;
+        top: 250px;
+        z-index: 100;
+        padding-left: 30px;
+        padding-right: 50px;
+        text-shadow: 1px 1px 1px #000;
+      }
+    }
+  }
+}
