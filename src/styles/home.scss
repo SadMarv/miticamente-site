@@ -11,7 +11,7 @@ $position: 25px;
       background-size: cover;
       border-radius: 10px;
       transition: 500ms;
-      opacity: .9;
+      opacity: 2;
       margin-left: auto;
       margin-right: auto;
       @media (max-width: 768px){
@@ -21,7 +21,19 @@ $position: 25px;
       &:hover{
         box-shadow: 0 14px 28px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .20);
         transition: 500ms;
-        opacity: 2;
+        opacity: .9;
+      }
+      &:hover .content-powerpress-player{
+        visibility: visible;
+        height: 40px;
+        transition: height 1s;
+
+      }
+      &:hover .content-powerpress-meta{
+        visibility: visible;
+        height: 45px;
+        transition: height 1s;
+
       }
       .podcast-name{
         @include title(bowlby, 16px, $primary);
@@ -33,6 +45,12 @@ $position: 25px;
         padding-left: 30px;
         padding-right: 50px;
         text-shadow: 2px 2px 2px #000;
+
+        @media (max-width: 768px){
+          padding-left: 5px;
+          font-size: 8px;
+          top: 130px;
+        }
       }
       .podcast-title{
         @include title(bowlby, 16px, #FFF);
@@ -44,7 +62,93 @@ $position: 25px;
         padding-left: 30px;
         padding-right: 50px;
         text-shadow: 1px 1px 1px #000;
+        @media (max-width: 768px){
+          padding-left: 5px;
+          font-size: 8px;
+          top: 140px;
+        }
       }
+
+      /* Estilo do player */
+    .content-powerpress-player {
+      visibility: hidden;
+      height: 0px;
+      transition: 280ms;
+    }
+    .powerpress_player{
+      a:nth-child(2){
+        display: none;
+      }
+    }
+    .powerpress_links{
+      display: none;
+    }
+
+  /* Estilo dos botões */
+  .content-powerpress-meta {
+      width: 100%;
+      visibility: hidden;
+      height: -40px;
+      transition: 250ms;
+    }
+    span.player-buttons {
+      width:33.3346%;
+      float:left;
+      text-align:center
+    }
+    span.player-buttons a.download,span.player-buttons.time>i.icon-time {
+      padding:10px 0;
+      display:block;
+      font-size:16.5px;
+      color:#fff
+    }
+    i.icon-rss {
+      margin-right:2px
+    }
+    .player-buttons:nth-child(1) {
+      background:#800;
+    }
+    .player-buttons:nth-child(2) {
+      background:#ac1911;
+    }
+    .player-buttons:nth-child(3) {
+      background:#d95500;
+    }
+    @media screen and (max-width:1024px) {
+      a.download i {
+        font-size:17px
+      }
+      a.download {
+        font-size:0!important
+      }
+  }
+
+  /* Estilo dos ícones */
+  @font-face {
+  font-family:'fontello';
+  src:url(/fonts/fontello.eot);
+  src:url(/fonts/fontello.eot?#iefix) format("embedded-opentype"),url(/fonts/fontello.woff2) format("woff2"),url(/fonts/fontello.woff) format("woff"),url(/fonts/fontello.ttf) format("truetype"),url(/fonts/fontello.svg#fontello) format("svg");
+  font-weight:400;
+  font-style:normal
+  }[class*=" icon-"]:before,[class^=icon-]:before {
+  font-family:fontello;
+  font-style:normal;
+  font-weight:400;
+  speak:none;
+  display:inline-block;
+  text-decoration:inherit;
+  width:1em;
+  margin-right:.2em;
+  text-align:center;
+  font-variant:normal;
+  text-transform:none;
+  line-height:1em;
+  margin-left:.2em;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale
+  }.icon-mp3:before { content: '\e800'; }
+  .icon-feed:before { content: '\f09e'; }
+  .icon-zip:before { content: '\f1c6'; }
     }
   }
 }
