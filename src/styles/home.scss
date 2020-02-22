@@ -11,7 +11,7 @@ $position: 25px;
       background-size: cover;
       border-radius: 10px;
       transition: 500ms;
-      opacity: 2;
+      //opacity: 4;
       margin-left: auto;
       margin-right: auto;
       @media (max-width: 768px){
@@ -21,7 +21,7 @@ $position: 25px;
       &:hover{
         box-shadow: 0 14px 28px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .20);
         transition: 500ms;
-        opacity: .9;
+        //opacity: .9;
       }
       &:hover .content-powerpress-player{
         visibility: visible;
@@ -70,11 +70,6 @@ $position: 25px;
       }
 
       /* Estilo do player */
-    .content-powerpress-player {
-      visibility: hidden;
-      height: 0px;
-      transition: 280ms;
-    }
     .powerpress_player{
       a:nth-child(2){
         display: none;
@@ -89,7 +84,7 @@ $position: 25px;
       width: 100%;
       visibility: hidden;
       height: -40px;
-      transition: 250ms;
+      //transition: 250ms;
     }
     span.player-buttons {
       width:33.3346%;
@@ -107,12 +102,14 @@ $position: 25px;
     }
     .player-buttons:nth-child(1) {
       background:#800;
+      border-top-left-radius: 10px;
     }
     .player-buttons:nth-child(2) {
       background:#ac1911;
     }
     .player-buttons:nth-child(3) {
       background:#d95500;
+      border-top-right-radius: 10px;
     }
     @media screen and (max-width:1024px) {
       a.download i {
