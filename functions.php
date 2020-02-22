@@ -21,7 +21,7 @@ function my_script_enqueuer() {
       if( !empty($EpisodeData['url']) ) {
           $enc = htmlspecialchars($EpisodeData['url']);
       }
-      echo $enc;
+      print_r($EpisodeData);
 
   }
   add_action('wp_ajax_contactAjax', 'contactAjax');

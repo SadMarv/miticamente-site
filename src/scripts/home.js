@@ -19,6 +19,8 @@ $(document).ready(function(){
           success: function(response){
            var url = response.substring(0,(response.length - 1))
             console.log('log '+url);
+            $('#podcast-audio').attr('src', url);
+
           }
         });
       

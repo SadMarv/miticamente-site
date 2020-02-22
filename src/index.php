@@ -63,8 +63,8 @@
     
     <div class="player">
       <div class="podcast_player_wrapper"> 
-        <audio controls yid="podcast"> 
-          <source src="<?php echo $enc?>"> 
+      <audio controls yid="podcast"> 
+          <source id='podcast-audio' src=""> 
         </audio>
         <div id="playback-bar">
           <div class="buffered"> 
