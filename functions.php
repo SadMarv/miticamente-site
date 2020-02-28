@@ -18,10 +18,13 @@ function my_script_enqueuer() {
     $podcastId = $_POST['data'];
 
     $EpisodeData = powerpress_get_enclosure_data( $podcastId );
-      if( !empty($EpisodeData['url']) ) {
-          $enc = htmlspecialchars($EpisodeData['url']);
-      }
-      print_r($EpisodeData);
+
+      $items = array(
+        "url" => $EpisodeData['url'],
+        "duration" => $EpisodeData['duration']
+      );
+
+      wp_send_json($items);
 
   }
   add_action('wp_ajax_contactAjax', 'contactAjax');

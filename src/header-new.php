@@ -22,6 +22,7 @@
   <link rel="shortcut icon" href="<?php echo get_site_icon_url(); ?>" />
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="<?php bloginfo('template_url');?>/static/styles/main.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/1.2.1/rangeslider.min.css">
 
   <title>Miticamente</title>
 </head>

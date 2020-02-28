@@ -1,29 +1,166 @@
 $(document).ready(function(){
+  history.replaceState(null,'','#home');
+  
+  var isPlaying = false;
 
-    $(".download").on('click', function(e){
-        // stopping form from reloading the page
-        e.preventDefault();
-        // serializing data from the target form
-        var podcastId = $(this).data('podcast-id');
 
-        console.log('podcast '+podcastId);
-      
-        $.ajax({
-          type: 'post',
-          dataType: 'text',
-          url: '/wp-admin/admin-ajax.php',
-          data: {
-            'action': 'contactAjax',
-            'data': podcastId
-          },
-          success: function(response){
-           var url = response.substring(0,(response.length - 1))
-            console.log('log '+url);
-            $('#podcast-audio').attr('src', url);
+  $(".play").on('click', function(e){
+    e.preventDefault();
+    var podcastId = $(this).data('podcast-id');
+    var path = window.location.href;
+    var urlPodcast = path.substr(path.indexOf('media'));
+    
+    console.log('path', path);
+    console.log('podcast '+podcastId);
+    
+    $.ajax({
+      type: 'post',
+      dataType: 'json',
+      url: '/wp-admin/admin-ajax.php',
+      data: {
+        'action': 'contactAjax',
+        'data': podcastId
+      },
+      success: function(response){
+        console.log(response);
+        var url = response['url'];
+        var duration = response['duration'];
 
+        var audio = $("#podcast-audio")[0];
+
+        function displayTime(e){
+          console.log("\n\nEvent: "+e.type);
+    
+          var newCurrentTime = 0;
+    
+          // User moves the slider. Just update the audio currentTime.
+          if(e.type=="input"){
+    
+            console.log("Slider val: " +$(".bar").val() )
+            console.log("Audio duration: " +audio.duration);
+    
+            newCurrentTime = audio.duration * parseInt( $(".bar").val() ) / 100;
+            audio.currentTime = newCurrentTime;
           }
+    
+          // The audio plays. Move the slider.
+          if(e.type=="timeupdate"){
+            newCurrentTime = audio.currentTime;        
+    
+            // Update the slider position
+            var rangeSliderWidth = $(".rangeslider").width();
+            var audioPercent = audio.currentTime / audio.duration;
+            var sliderPos = rangeSliderWidth*audioPercent;
+    
+            // The "handle" and the green fill at its left.
+            $(".rangeslider__fill").css({"width":sliderPos+21});
+    
+            //console.log("Width: " +$(".rangeslider").width());
+            console.log("Percentage played: " +audioPercent);
+    
+          }
+    
+          console.log("tempCurrentTime: " +newCurrentTime)
+    
+          // Display formatted time
+          var minutes = Math.floor(newCurrentTime/60);
+          var seconds = Math.floor(newCurrentTime%60);
+          if(seconds<10){seconds = "0"+seconds}
+          $("#status").text(minutes+":"+seconds);
+        }
+
+        // RangeSlider instantiation
+          $(".bar").rangeslider({
+            polyfill: false,
+          });
+
+
+          // Control handlers
+          $(document).on("input", ".bar", function(e){  // On slider move
+            displayTime(e)
+          });
+
+          $("#podcast-audio").on('timeupdate',  function(e){  // on currentTime change
+            displayTime(e)
+          });
+
+
+
+
+
+
+
+
+
+
+      //   var currentTime = Math.floor($('#podcast-audio').get(0).currentTime);
+      //   console.log("currentTime",currentTime);
+        
+      //   console.log('url',url);
+      //   console.log('duration', duration);
+
+      //   var a = duration.split(':'); // split it at the colons
+      //   // minutes are worth 60 seconds. Hours are worth 60 minutes.
+      //   var seconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]); 
+
+
+      //   //var maxDuration = Math.floor(currentTime*100/seconds);
+      //   console.log("seconds", seconds);
+      //   $(".bar").attr('max',seconds);
+      //   $(".bar").on('propertychange input', function(){
+
+      //     $(this).val(currentTime);
+            
+      //     console.log("currentTime", currentTime);
+          
+      // });
+        
+        var urlHash = url.substr(url.indexOf('media')); 
+        console.log('urlPodcast', urlPodcast);
+        console.log('urlHash '+urlHash);
+        history.replaceState(null,'','#podcast='+url);
+        
+        if(urlHash != urlPodcast || isPlaying == false){
+          $('.podcast-audio').attr('src', url);
+          play();
+        } else {
+          console.log("mesma faixa");
+        }
+          },
+          error: function(errorThrown){
+            alert('error');
+            console.log(errorThrown);
+       }
         });
-      
+        
       }) // contactForm click event end
+
+      function play(){
+        isPlaying = true;
+       $('#podcast-audio').get(0).play();
+       $(".podcast_play").children('i').removeClass('fa fa-play').addClass('fa fa-pause');
+      }
+
+      function pause(){
+        isPlaying = false;
+        $('#podcast-audio').get(0).pause();
+        $(".podcast_play").children('i').removeClass('fa fa-pause').addClass('fa fa-play');
+      }
+
+      $(".podcast_play").on('click', function (e){
+        e.preventDefault();
+        console.log("apertei");
+        
+        
+        if(isPlaying){
+          pause();
+          console.log("isPlaying", isPlaying);
+        } else {
+          play();
+          console.log("isPlaying", isPlaying);
+        }
+      })
+
+      
 });
 
