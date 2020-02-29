@@ -1,4 +1,72 @@
 $(document).ready(function(){
+
+  var audio = $("#podcast-audio")[0];
+
+  function displayTime(e){
+    console.log("\n\nEvent: "+e.type);
+
+    var newCurrentTime = 0;
+
+    // User moves the slider. Just update the audio currentTime.
+    if(e.type=="input"){
+
+      newCurrentTime = audio.duration * parseInt( $(".bar").val() ) / 100;
+      audio.currentTime = newCurrentTime;
+    }
+
+    // The audio plays. Move the slider.
+    if(e.type=="timeupdate"){
+      newCurrentTime = audio.currentTime;        
+
+      // Update the slider position
+      var rangeSliderWidth = $(".rangeslider").width();
+      var audioPercent = audio.currentTime / audio.duration;
+      var sliderPos = rangeSliderWidth*audioPercent;
+      console.log("rangeSliderWidth", rangeSliderWidth);
+      
+      console.log("audioPercent", audioPercent);
+      console.log("sliderPos", sliderPos);
+      
+      
+
+      // The "handle" and the green fill at its left.
+      $(".rangeslider__handle").css({"display":"none"});
+      $(".rangeslider__fill").css({"width":sliderPos});
+
+      //console.log("Width: " +$(".rangeslider").width());
+      console.log("Percentage played: " +audioPercent);
+
+    }
+
+    console.log("tempCurrentTime: " +newCurrentTime)
+
+    // Display formatted time
+    var minutes = Math.floor(newCurrentTime/60);
+    var seconds = Math.floor(newCurrentTime%60);
+    if(seconds<10){seconds = "0"+seconds}
+    $("#status").text(minutes+":"+seconds);
+  }
+
+
+  // RangeSlider instantiation
+  $(".bar").rangeslider({
+    polyfill: false,
+
+    onInit: function (){
+      $(".rangeslider__fill").css({"width":'0px'});
+    },
+  });
+
+
+  // Control handlers
+  $(document).on("input", ".bar", function(e){  // On slider move
+    displayTime(e)
+  });
+
+  $("#podcast-audio").on('timeupdate',  function(e){  // on currentTime change
+    displayTime(e)
+  });
+
   history.replaceState(null,'','#home');
   
   var isPlaying = false;
@@ -25,71 +93,8 @@ $(document).ready(function(){
         console.log(response);
         var url = response['url'];
         var duration = response['duration'];
-
-        var audio = $("#podcast-audio")[0];
-
-        function displayTime(e){
-          console.log("\n\nEvent: "+e.type);
-    
-          var newCurrentTime = 0;
-    
-          // User moves the slider. Just update the audio currentTime.
-          if(e.type=="input"){
-    
-            console.log("Slider val: " +$(".bar").val() )
-            console.log("Audio duration: " +audio.duration);
-    
-            newCurrentTime = audio.duration * parseInt( $(".bar").val() ) / 100;
-            audio.currentTime = newCurrentTime;
-          }
-    
-          // The audio plays. Move the slider.
-          if(e.type=="timeupdate"){
-            newCurrentTime = audio.currentTime;        
-    
-            // Update the slider position
-            var rangeSliderWidth = $(".rangeslider").width();
-            var audioPercent = audio.currentTime / audio.duration;
-            var sliderPos = rangeSliderWidth*audioPercent;
-    
-            // The "handle" and the green fill at its left.
-            $(".rangeslider__fill").css({"width":sliderPos+21});
-    
-            //console.log("Width: " +$(".rangeslider").width());
-            console.log("Percentage played: " +audioPercent);
-    
-          }
-    
-          console.log("tempCurrentTime: " +newCurrentTime)
-    
-          // Display formatted time
-          var minutes = Math.floor(newCurrentTime/60);
-          var seconds = Math.floor(newCurrentTime%60);
-          if(seconds<10){seconds = "0"+seconds}
-          $("#status").text(minutes+":"+seconds);
-        }
-
-        // RangeSlider instantiation
-          $(".bar").rangeslider({
-            polyfill: false,
-          });
-
-
-          // Control handlers
-          $(document).on("input", ".bar", function(e){  // On slider move
-            displayTime(e)
-          });
-
-          $("#podcast-audio").on('timeupdate',  function(e){  // on currentTime change
-            displayTime(e)
-          });
-
-
-
-
-
-
-
+        var name = response['name'];
+        var title = response['title'];
 
 
 
@@ -123,6 +128,7 @@ $(document).ready(function(){
         if(urlHash != urlPodcast || isPlaying == false){
           $('.podcast-audio').attr('src', url);
           play();
+          $(".podcast_name").children('p').text(name+' - '+ title);
         } else {
           console.log("mesma faixa");
         }

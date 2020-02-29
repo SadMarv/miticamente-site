@@ -17,11 +17,17 @@ function my_script_enqueuer() {
   function contactAjax(){
     $podcastId = $_POST['data'];
 
+
+    $name = explode(' –', get_the_title($podcastId))[0];
+    $title = explode('– ', get_the_title($podcastId))[1];
+
     $EpisodeData = powerpress_get_enclosure_data( $podcastId );
 
       $items = array(
         "url" => $EpisodeData['url'],
-        "duration" => $EpisodeData['duration']
+        "duration" => $EpisodeData['duration'],
+        "name" => $name,
+        "title" => $title,
       );
 
       wp_send_json($items);

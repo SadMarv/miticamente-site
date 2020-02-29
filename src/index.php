@@ -67,10 +67,13 @@
               <source class='podcast-audio' type="audio/mpeg" src=""> 
           </audio>
           <div class="progress">
-            <span class="podcast_button podcast_play">
+            <span class="podcast_play">
               <i class="fa fa-play"></i>
             </span>
-            <input type="range" min="0" max="100" step="1" class="bar" style="width:100%" value="0">
+            <span class="podcast_name text-center">
+              <p style="margin:unset"></p>
+            </span>
+            <input type="range" min="0" max="100" step="1" class="bar" style="width:60%" value="0">
             </input>
             <div id="status"></div>
           </div><!--Fim playback-bar-->
