@@ -3,7 +3,6 @@ $(document).ready(function(){
   var audio = $("#podcast-audio")[0];
 
   function displayTime(e){
-    console.log("\n\nEvent: "+e.type);
 
     var newCurrentTime = 0;
 
@@ -19,16 +18,15 @@ $(document).ready(function(){
       newCurrentTime = audio.currentTime;        
 
       // Update the slider position
-      var rangeSliderWidth = $(".rangeslider").width();
+      var rangeSliderWidth = $(".rangeslider").width() - $(".rangeslider__handle").width();
       var audioPercent = audio.currentTime / audio.duration;
       var sliderPos = rangeSliderWidth*audioPercent;
- 
-      
-      
 
       // The "handle" and the green fill at its left.
       $(".rangeslider__handle").css({"display":"none"});
       $(".rangeslider__fill").css({"width":sliderPos});
+
+      //console.log("Width: " +$(".rangeslider").width());
 
     }
 
@@ -68,6 +66,8 @@ $(document).ready(function(){
   $(".play").on('click', function(e){
     e.preventDefault();
     var podcastId = $(this).data('podcast-id');
+    console.log('podcastId',podcastId);
+    
     var path = window.location.href;
     var urlPodcast = path.substr(path.indexOf('media'));
     
@@ -84,6 +84,30 @@ $(document).ready(function(){
         var duration = response['duration'];
         var name = response['name'];
         var title = response['title'];
+
+
+
+      //   var currentTime = Math.floor($('#podcast-audio').get(0).currentTime);
+      //   console.log("currentTime",currentTime);
+        
+      //   console.log('url',url);
+      //   console.log('duration', duration);
+
+      //   var a = duration.split(':'); // split it at the colons
+      //   // minutes are worth 60 seconds. Hours are worth 60 minutes.
+      //   var seconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]); 
+
+
+      //   //var maxDuration = Math.floor(currentTime*100/seconds);
+      //   console.log("seconds", seconds);
+      //   $(".bar").attr('max',seconds);
+      //   $(".bar").on('propertychange input', function(){
+
+      //     $(this).val(currentTime);
+            
+      //     console.log("currentTime", currentTime);
+          
+      // });
         
         var urlHash = url.substr(url.indexOf('media')); 
         history.replaceState(null,'','#podcast='+url);

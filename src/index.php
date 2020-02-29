@@ -20,6 +20,7 @@
         $name = explode('–', get_the_title())[0];
         $title = explode('–', get_the_title())[1];
         $postid = get_the_ID();
+        $perm_link = get_the_permalink();
         $thumb = get_the_post_thumbnail_url($postid);
         ?>
           <div class="col-12 col-xl-6">

@@ -1,7 +1,1 @@
-<div class="bg-roda-pe">
-</div>
-<div class="container footer">
-  <div class="row text-center">
-    hahahahaha
-  </div>
-</div>
+<div class="bg-roda-pe"></div><div class="container footer"><div class="row text-center">hahahahaha</div></div>
