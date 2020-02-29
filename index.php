@@ -1,12 +1,10 @@
-<?php /* Template Name: New Home */
-define('CNFGR_TITLE', 'Hospedagem em Nuvem Gerenciada por Robôs - Configr');
-define('CNFGR_META_DESCRIPTION', 'A plataforma de gerenciamento de hospedagem de sites da Configr foi criada para facilitar a gestão de recursos de hospedagem em nuvem, para a melhor performance de aplicações como Wordpress, Magento e outras.');
+<?php /* Template Name: Home */
 ?> <!doctype html><html lang="pt-br"> <?php get_header('new'); ?> <body class="home"> <?php get_header('navbar') ?> <div class="container home"><div class="row"> <?php
         $args = array(
           'post_type' => 'post',
           'category_name'  => 'podcasts',
           'posts_per_page' => 8,
-          'order' => 'ASC',
+          'order' => 'DESC',
         );
         $query = new WP_Query($args);
         while($query->have_posts()):$query->the_post();
