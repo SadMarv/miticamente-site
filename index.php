@@ -11,7 +11,6 @@
         $name = explode('–', get_the_title())[0];
         $title = explode('–', get_the_title())[1];
         $postid = get_the_ID();
-        $perm_link = get_the_permalink();
         $thumb = get_the_post_thumbnail_url($postid);
 <<<<<<< HEAD
         ?> <div class="col-12 col-xl-6"><div class="card-podcast" style="background-image:linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(51, 51, 51, 0.59)), url('<?php echo $thumb; ?>');"><a href="<?php echo $perm_link; ?>"><p class="podcast-name"><?php echo $name; ?></p><p class="podcast-title"><?php echo $title; ?></p></a> <?php if( $episode_content = get_the_powerpress_content() ){ // Player Powerpress  ?> <div class="content-powerpress-player"> <?php echo $episode_content; // Insere player ?> </div><div class="content-powerpress-meta"><span class="player-buttons"><a download="" class="download" href="<?php
