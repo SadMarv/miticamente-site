@@ -12,23 +12,6 @@
         $title = explode('–', get_the_title())[1];
         $postid = get_the_ID();
         $thumb = get_the_post_thumbnail_url($postid);
-<<<<<<< HEAD
-        ?> <div class="col-12 col-xl-6"><div class="card-podcast" style="background-image:linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(51, 51, 51, 0.59)), url('<?php echo $thumb; ?>');"><a href="<?php echo $perm_link; ?>"><p class="podcast-name"><?php echo $name; ?></p><p class="podcast-title"><?php echo $title; ?></p></a> <?php if( $episode_content = get_the_powerpress_content() ){ // Player Powerpress  ?> <div class="content-powerpress-player"> <?php echo $episode_content; // Insere player ?> </div><div class="content-powerpress-meta"><span class="player-buttons"><a download="" class="download" href="<?php
-                				$EpisodeData = powerpress_get_enclosure_data(get_the_ID(), 'podcast');
-                				$MediaURL = powerpress_add_flag_to_redirect_url($EpisodeData['url'], 'p');
-                				?>" target="_blank"><i class="fas fa-download"></i> Baixar (<?php
-                				$EpisodeData = powerpress_get_enclosure_data(get_the_ID(), 'podcast');
-                				$MediaSize = powerpress_add_flag_to_redirect_url($EpisodeData['size'], '');
-                				echo number_format($MediaSize / (1024 * 1024), 1); ?>MB)</a> </span><span class="player-buttons"><a title="Download ZIP" class="download" href="<?php
-                				$url = $MediaURL;
-                				$parts = parse_url($url);
-                				$file_name = basename($parts['path']);
-                				$newname = str_replace(array(".mp3"), ".zip", $file_name);
-                				rename($filename, $newname); // Converte a extensão .mp3 para .zip
-                				?>" target="_blank"><i class="fas fa-file-archive" aria-hidden="true"></i> Zip</a> </span><span class="player-buttons"><a class="download" href="https://miticamente.com.br/feed/podcast/feed.xml" target="_blank"><i class="fas fa-rss"></i> Assinar</a></span></div> <?php } ?> </div></div> <?php
-        endwhile; wp_reset_postdata();
-         ?> </div></div> <?php get_footer('new') ?> <?php get_footer('scripts'); ?> <script src="<?php bloginfo('template_url');?>/static/scripts/home.js"></script><script src="<?php bloginfo('template_url');?>/static/scripts/theater.min.js"></script></body></html>
-=======
         ?> <div class="col-12 col-xl-6"><div class="card-podcast" style="background-image:linear-gradient(173deg, rgba(225,225,220,0), rgba(0,0,0,0.4)), url('<?php echo $thumb; ?>');"><a href="<?php echo $perm_link; ?>"><p class="podcast-name"><?php echo $name; ?></p><p class="podcast-title"><?php echo $title; ?></p></a> <?php if( $episode_content = get_the_powerpress_content() ){ // Player Powerpress  ?> <div class="content-powerpress-meta"><span class="player-buttons"><a download="" class="download" href="<?php
                           $EpisodeData = powerpress_get_enclosure_data(get_the_ID(), 'podcast');
                           $MediaURL = powerpress_add_flag_to_redirect_url($EpisodeData['url'], 'p');
@@ -38,4 +21,3 @@
                           echo number_format($MediaSize / (1024 * 1024), 1); ?>MB) </a></span><span class="player-buttons"><a title="Play" class="download play" data-podcast-id="<?php echo get_the_ID(); ?> "><i class="fas fa-play" aria-hidden="true"></i> Play </a></span><span class="player-buttons"><a class="download" href="https://miticamente.com.br/feed/podcast/feed.xml" target="_blank"><i class="fas fa-rss"></i> Assinar</a></span></div> <?php } ?> </div></div> <?php
             endwhile; wp_reset_postdata();
           ?> </div></div><div class="col-12 text-center player"><div class="podcast_player_wrapper"><audio class="podcast-audio" id="podcast-audio" src=""><source class="podcast-audio" type="audio/mpeg" src=""></audio><div class="progress"><span class="podcast_play"><i class="fa fa-play"></i> </span><span class="podcast_name text-center"><p style="margin:unset"></p></span><input type="range" min="0" max="100" step="1" class="bar" style="width:60%" value="0"><div id="status"></div></div></div></div> <?php get_footer('new') ?> <?php get_footer('scripts'); ?> <script src="<?php bloginfo('template_url');?>/static/scripts/home.js"></script></body></html>
->>>>>>> 599d6c04cbda4825d4a31493598a64f9eed3d13b
