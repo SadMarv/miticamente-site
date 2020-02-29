@@ -15,8 +15,8 @@ function my_script_enqueuer() {
 
 
   function contactAjax(){
-    $podcastId = $_POST['data'];
-
+    $podcast = $_POST['data'];
+    $podcastId = preg_replace('/\D/', '', $podcast);
 
     $name = explode(' –', get_the_title($podcastId))[0];
     $title = explode('– ', get_the_title($podcastId))[1];
