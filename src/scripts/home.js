@@ -22,10 +22,7 @@ $(document).ready(function(){
       var rangeSliderWidth = $(".rangeslider").width();
       var audioPercent = audio.currentTime / audio.duration;
       var sliderPos = rangeSliderWidth*audioPercent;
-      console.log("rangeSliderWidth", rangeSliderWidth);
-      
-      console.log("audioPercent", audioPercent);
-      console.log("sliderPos", sliderPos);
+ 
       
       
 
@@ -33,12 +30,8 @@ $(document).ready(function(){
       $(".rangeslider__handle").css({"display":"none"});
       $(".rangeslider__fill").css({"width":sliderPos});
 
-      //console.log("Width: " +$(".rangeslider").width());
-      console.log("Percentage played: " +audioPercent);
-
     }
 
-    console.log("tempCurrentTime: " +newCurrentTime)
 
     // Display formatted time
     var minutes = Math.floor(newCurrentTime/60);
@@ -78,9 +71,6 @@ $(document).ready(function(){
     var path = window.location.href;
     var urlPodcast = path.substr(path.indexOf('media'));
     
-    console.log('path', path);
-    console.log('podcast '+podcastId);
-    
     $.ajax({
       type: 'post',
       dataType: 'json',
@@ -90,15 +80,12 @@ $(document).ready(function(){
         'data': podcastId
       },
       success: function(response){
-        console.log(response);
         var url = response['url'];
         var duration = response['duration'];
         var name = response['name'];
         var title = response['title'];
         
         var urlHash = url.substr(url.indexOf('media')); 
-        console.log('urlPodcast', urlPodcast);
-        console.log('urlHash '+urlHash);
         history.replaceState(null,'','#podcast='+url);
         
         if(urlHash != urlPodcast || isPlaying == false){
@@ -106,7 +93,6 @@ $(document).ready(function(){
           play();
           $(".podcast_name").children('p').text(name+' - '+ title);
         } else {
-          console.log("mesma faixa");
         }
           },
           error: function(errorThrown){
@@ -131,15 +117,12 @@ $(document).ready(function(){
 
       $(".podcast_play").on('click', function (e){
         e.preventDefault();
-        console.log("apertei");
         
         
         if(isPlaying){
           pause();
-          console.log("isPlaying", isPlaying);
         } else {
           play();
-          console.log("isPlaying", isPlaying);
         }
       })
 
