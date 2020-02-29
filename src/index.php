@@ -44,7 +44,7 @@
                         </a>
                       </span>
                       <span class="player-buttons">
-                        <a title="Play" class="download" data-podcast-id=<?php echo get_the_ID(); ?> >
+                        <a title="Play" class='download play' data-podcast-id=<?php echo get_the_ID(); ?> >
                           <i class="fas fa-play" aria-hidden="true"></i> Play
                         </a>
                       </span>
@@ -60,44 +60,27 @@
           ?>          
       </div><!--Fim Row-->
     </div><!--Fim Container-->
-    
-    <div class="player">
+    <!-- Player-->
+    <div class="col-12 text-center player">
       <div class="podcast_player_wrapper"> 
-      <audio controls yid="podcast"> 
-          <source id='podcast-audio' src=""> 
-        </audio>
-        <div id="playback-bar">
-          <div class="buffered"> 
-            <span id="buffered-amount"></span>
-          </div>
-          <div class="progressbarrr"> 
-            <span id="progress-amount" style="width: 2.50232%;"></span>
-          </div><div class="needle"> 
-            <span id="needleposition" style="width: 3px; display: none;"></span>
-          </div>
-        </div>
-        <div class="controls"> 
-          <span onclick="PlayPodcast()" class="podcast_button podcast_play">
-            <i class="fa fa-play"></i>
-          </span> 
-          <span onclick="PausePodcast()" class="podcast_button podcast_pause hide-b">
-            <i class="fa fa-pause"></i>
-          </span> 
-          <span onclick="setOneHalfSpeed()" class="podcast_smallbutton podcast_normalspeed">1x</span> 
-          <span onclick="setDoubleSpeed()" class="podcast_smallbutton hide-b podcast_onehalfspeed">1.5x</span> 
-          <span onclick="setNormalSpeed()" class="podcast_smallbutton hide-b podcast_doublespeed">2x</span> 
-          <span onclick="setVolumeHalf()" class="podcast_smallbutton podcast_mute hide-b">
-            <i class="fa fa-volume-off"></i>
-          </span> 
-          <span onclick="setVolumeFull()" class="podcast_smallbutton podcast_halfvolume hide-b">
-            <i class="fa fa-volume-down"></i>
-          </span> 
-          <span onclick="setVolumeZero()" class="podcast_smallbutton podcast_fullvolume">
-            <i class="fa fa-volume-up"></i></span>
-        </div> 
-        <span id="toend">-1:07:21</span>
-  </div>
-    </div>
+          <audio class="podcast-audio" id="podcast-audio" src=""> 
+              <source class='podcast-audio' type="audio/mpeg" src=""> 
+          </audio>
+          <div class="progress">
+            <span class="podcast_play">
+              <i class="fa fa-play"></i>
+            </span>
+            <span class="podcast_name text-center">
+              <p style="margin:unset"></p>
+            </span>
+            <input type="range" min="0" max="100" step="1" class="bar" style="width:60%" value="0">
+            </input>
+            <div id="status"></div>
+          </div><!--Fim playback-bar-->
+      </div><!--Fim podcast_player_wrapper-->
+    </div><!--Fim player-->
+    
+    
 
 
     <!-- Footer -->
