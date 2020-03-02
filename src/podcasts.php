@@ -6,12 +6,7 @@
   <body class="home">
 
     <?php get_header('navbar') ?>
-    <div class="container home">
-      <div class="row">
-        <div class="col-12 col-xs-6 pt-5">
-          <h1 class="title-podcasts">Podcasts</h1>
-        </div>
-        <?php
+    <?php
         $args = array(
           'post_type' => 'post',
           'category_name'  => 'Podcasts',
@@ -21,15 +16,33 @@
         );
         $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
         $query = new WP_Query($args);
-        while($query->have_posts()):$query->the_post();
-        $name = explode('–', get_the_title())[0];
-        $title = explode('–', get_the_title())[1];
-        $postid = get_the_ID();
-        $perm_link = get_the_permalink();
-        $thumb = get_the_post_thumbnail_url($postid);
-        $content = get_the_content(); 
+    ?>
+         
 
-        ?>
+    <div class="container home">
+      <div class="row pt-5">
+        <div class="col-8">
+          <h1 class="title-podcasts">Podcasts</h1>
+        </div>
+        <div class="col-4 pagination-top text-center">
+            <?php 
+                echo previous_posts_link('<i class="fa fa-chevron-left" aria-hidden="true"></i>');
+                echo next_posts_link( '<i class="fa fa-chevron-right" aria-hidden="true"></i>', $query->max_num_pages);
+            ?>
+        </div>
+      </div><!--fim row-->
+
+      <div class="row">
+          <?php
+            while($query->have_posts()):$query->the_post();
+            $name = explode('–', get_the_title())[0];
+            $title = explode('–', get_the_title())[1];
+            $postid = get_the_ID();
+            $perm_link = get_the_permalink();
+            $thumb = get_the_post_thumbnail_url($postid);
+            $content = get_the_content();
+          ?>
+        
           <div class="col-12 col-xl-6 box-podcast">
             <div  class="card-podcast" style="background-image:linear-gradient(173deg, rgba(225,225,220,0), rgba(0,0,0,0.4)), url('<?php echo $thumb; ?>');">
                 <a href=<?php echo $perm_link; ?>>

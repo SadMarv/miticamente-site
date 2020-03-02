@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse"  id="navbarText">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a href="podcasts/" class="nav-link">Podcasts</a>
+          <a href="/podcasts" class="nav-link">Podcasts</a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right ul-links">

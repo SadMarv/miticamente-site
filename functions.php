@@ -36,4 +36,5 @@ function my_script_enqueuer() {
   add_action('wp_ajax_contactAjax', 'contactAjax');
   add_action('wp_ajax_nopriv_contactAjax', 'contactAjax');
 
+
  ?>
