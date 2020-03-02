@@ -1,4 +1,4 @@
-<?php /* Template Name: Home */
+<?php /* Template Name: Podcasts Page */
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -8,11 +8,14 @@
     <?php get_header('navbar') ?>
     <div class="container home">
       <div class="row">
+        <div class="col-12 col-xs-6">
+          <h1>Episódios</h1>
+        </div>
         <?php
         $args = array(
           'post_type' => 'post',
           'category_name'  => 'Podcasts',
-          'posts_per_page' => 8,
+          'posts_per_page' => -1,
           'order' => 'DESC',
         );
         $query = new WP_Query($args);
@@ -22,6 +25,11 @@
         $postid = get_the_ID();
         $perm_link = get_the_permalink();
         $thumb = get_the_post_thumbnail_url($postid);
+        $content_post = get_the_excerpt($postid);
+        $content = $content_post->post_content;
+        $content = apply_filters('the_content', $content);
+        $content = str_replace(']]>', ']]&gt;', $content);
+
         ?>
           <div class="col-12 col-xl-6">
             <div  class="card-podcast" style="background-image:linear-gradient(173deg, rgba(225,225,220,0), rgba(0,0,0,0.4)), url('<?php echo $thumb; ?>');">
@@ -55,40 +63,22 @@
                 <?php } ?>
             </div>
           </div>
+          <div class="col-12 col-xl-6">
+            <div>
+              <?php
+                echo $content;
+              ?>
+            </div>
+          </div>
           <?php
             endwhile; wp_reset_postdata();
           ?>          
       </div><!--Fim Row-->
     </div><!--Fim Container-->
-    <!-- Player-->
-    <div class="col-12 text-center player">
-      <div class="podcast_player_wrapper"> 
-          <audio class="podcast-audio" id="podcast-audio" src=""> 
-              <source class='podcast-audio' type="audio/mpeg" src=""> 
-          </audio>
-          <div class="progress">
-            <span class="podcast_play">
-              <i class="fa fa-play"></i>
-            </span>
-            <span class="podcast_name text-center">
-              <p style="margin:unset"></p>
-            </span>
-            <input type="range" min="0" max="100" step="1" class="bar" style="width:60%" value="0">
-            </input>
-            <div id="status"></div>
-          </div><!--Fim playback-bar-->
-          <div class="btn btn-close">
-          <i class="fa fa-window-close" aria-hidden="true"></i>
-          </div>
-      </div><!--Fim podcast_player_wrapper-->
-    </div><!--Fim player-->
-    
-    
-
 
     <!-- Footer -->
     <?php get_footer('new') ?>
     <?php get_footer('scripts'); ?>
-    <script src="<?php bloginfo('template_url');?>/static/scripts/home.js"></script>
+    <script src="<?php bloginfo('template_url');?>/static/scripts/podcasts.js"></script>
   </body>
 </html>

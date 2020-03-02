@@ -13,20 +13,20 @@
       background-repeat: no-repeat;
       background-size: contain;
       overflow: hidden;
-      height: 35px;
-      width: 180px;
+      height: 50px;
+      width: 90px;
       display: block;
       padding: 0;
 
       @media (max-width: 768px) {
         margin-right: 0px;
         height: 30px;
-        width: 150px;
+        width: 60px;
       }
       @media (min-width: 769px)and(max-width: 992px) {
         margin-right: 0px;
         height: 45px;
-        width: 150px;
+        width: 60px;
       }
     }
 
@@ -34,22 +34,48 @@
       padding: 0;
       font-size: 30px;
       border: unset;
-      color: #000;
+      color: #fff;
+
+      @media (max-width: 768px) {
+        font-size: 25px;
+      }
+      @media (min-width: 769px)and(max-width: 992px) {
+        font-size: 30px;
+      }
     }
     .nav-link{
-      font-family: Lato-Regular, sans-serif;
+      font-family: bowlby, sans-serif;
       font-size: .9rem;
       margin-top: 5px;
       padding-left: 1em !important;
       padding-right: 1em !important;
       text-transform: uppercase;
+      text-shadow: 2px 2px 2px #000;
       @include link-text(#fff);
+
+      @media (max-width: 768px) {
+        font-size: .7rem;
+      }
+      @media (min-width: 769px)and(max-width: 992px) {
+        font-size: .8rem;
+      }
     }
     .nav-item{
       a{
         &.mr-3{
           color:#FFFF;
           font-size: 25px;
+
+          @media (max-width: 768px) {
+            font-size: 16px;
+          }
+          @media (min-width: 769px)and(max-width: 992px) {
+            font-size: 18px;
+          }
+          
+        }
+        &.mr-3:hover{
+          color:rgb(21, 104, 19);
         }
       }
       .separator{
@@ -64,25 +90,6 @@
       }
     }
 
-
-    .btn-signup{
-      button{
-        @include new-btn-default(#FFF);
-        border-color: #ddd;
-        border-width: 2px;
-        font-size: .8rem !important;
-        color: #aaa;
-        height: 44px;
-        font-weight: normal !important;
-        padding-left: 50px;
-        padding-right: 50px;
-        box-shadow: none;
-      }
-
-      button:hover{
-        border-color: $primary;
-      }
     }
-  }
   }
 }

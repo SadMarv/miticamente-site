@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse"  id="navbarText">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a  class="nav-link">Podcasts</a>
+          <a href="podcasts/" class="nav-link">Podcasts</a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right ul-links">
@@ -16,7 +16,7 @@
 
           </div>
         </li>
-        <li class="nav-item">
+        <li class="nav-item text-center">
           <a href="https://open.spotify.com/show/5XLM8K4Y3dqKEru8ehtFmo" target="new" class="icon-link-sociais mr-3"><i class="fab fa-spotify"></i></a>
           <a href="https://www.youtube.com/channel/UCAa1CAt8eil7zz9AbYwAujw" target="new" class="icon-link-sociais mr-3"><i class="fab fa-youtube"></i></a>
           <a href="https://www.instagram.com/miticamentepodcast/?hl=pt-br" target="new" class="icon-link-sociais mr-3"><i class="fab fa-instagram"></i></a>

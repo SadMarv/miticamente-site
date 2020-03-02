@@ -2,6 +2,7 @@ $position: 25px;
 
 .container{
   &.home{
+    padding-bottom: 15px;;
     .card-podcast{
       margin-top: $position;
       background-repeat: no-repeat;
@@ -17,6 +18,7 @@ $position: 25px;
       @media (max-width: 768px){
         width: 280px;
         height: 150px;
+
       }
       &:hover{
         box-shadow: 0 14px 28px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .20);
@@ -85,11 +87,15 @@ $position: 25px;
       visibility: hidden;
       height: -40px;
       //transition: 250ms;
+
+      @media screen and (max-width:768px) {
+        visibility: visible;
+      }
     }
     span.player-buttons {
       width:33.3346%;
       float:left;
-      text-align:center
+      text-align:center;
     }
     span.player-buttons a.download,span.player-buttons.time>i.icon-time {
       padding:10px 0;
@@ -111,9 +117,17 @@ $position: 25px;
       background:#d95500;
       border-top-right-radius: 10px;
     }
-    @media screen and (max-width:1024px) {
+    @media (min-width:769px) and (max-width:1024px) {
       a.download i {
         font-size:17px
+      }
+      a.download {
+        font-size:0!important
+      }
+    }
+    @media (max-width:768px) {
+      a.download i {
+        font-size:12px
       }
       a.download {
         font-size:0!important
@@ -224,6 +238,15 @@ $position: 25px;
     -moz-border-radius: unset;
     border-radius: unset;
     z-index: 550;
+
+    @media screen and (max-width:768px) {
+      width: 100%;
+    }
+  
+    @media (max-width:576px) {
+      font-size:12px;
+      width: 100%;
+    }
   }
 
   .rangeslider__handle{
@@ -259,12 +282,32 @@ $position: 25px;
 }
 
 .player{
-  //visibility: hidden;
+  display: none;
   background-image: linear-gradient(17deg, #31332e 5%, #192711) ;
   position: sticky;
   z-index: 500;
   bottom: 0px;
   margin-top: 25px;
+}
+
+.btn-close{
+  display: flex;
+  right: 0;
+  top: 5px;
+  position: absolute;
+  color: white;
+
+  @media screen and (max-width:768px) {
+    font-size:14px;
+  }
+
+  @media (max-width:576px) {
+    font-size:12px;
+  }
+}
+
+.btn-close:hover{
+  color: #76bc1c;
 }
 
 
