@@ -1,57 +1,22 @@
 @font-face {
-  font-family: 'Lato-Regular';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../fonts/Lato-Regular.ttf');
-}
-
-@font-face {
-  font-family: 'Lato-Bold';
-  font-style: normal;
-  font-weight: 700;
-  src: url('../fonts/Lato-Bold.ttf');
-}
-
-@font-face {
-  font-family: 'Lato-Black';
-  font-style: normal;
-  font-weight: 900;
-  src: url('../fonts/Lato-Black.ttf');
-}
-
-@font-face {
-  font-family: 'carlmarx-regular';
-  font-weight: 400;
-  font-style: normal;
-  src: url('../fonts/carlmarx-regular.woff2');
-}
-
-@font-face {
-  font-family: 'Verdana';
-  font-weight: 400;
-  font-style: normal;
-  src: url('../fonts/verdana-4.ttf');
-}
-
-@font-face {
-  font-family: 'carlmarx-bold';
-  font-weight: 700;
-  font-style: normal;
-  src: url('../fonts/carlmarx-bold.woff2');
-}
-
-@font-face {
   font-family: 'bowlby';
   font-weight: 900;
   font-style: normal;
   src: url('../fonts/BowlbyOneSC-Regular.ttf');
 }
 
+@font-face {
+  font-family: 'Asap';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/Asap.woff2');
+}
+
 $primary: #76bc1c;
 
 $fa-font-path: '../fonts';
 
-$font-family-sans-serif: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+$font-family-sans-serif: 'Asap', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
 $slick-font-path: '../fonts/';
 $slick-font-family: 'Font Awesome 5 Free';
@@ -122,7 +87,8 @@ $fit-thumb-in-slider: -8px;
   font-weight: 900;
 
   &:hover {
-    color: #ffd106;
+    //color: #ffd106;
+    color: #E3F1D1;
     ;
   }
 }

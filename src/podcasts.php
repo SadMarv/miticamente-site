@@ -8,16 +8,18 @@
     <?php get_header('navbar') ?>
     <div class="container home">
       <div class="row">
-        <div class="col-12 col-xs-6">
-          <h1>Episódios</h1>
+        <div class="col-12 col-xs-6 pt-5">
+          <h1 class="title-podcasts">Podcasts</h1>
         </div>
         <?php
         $args = array(
           'post_type' => 'post',
           'category_name'  => 'Podcasts',
-          'posts_per_page' => -1,
+          'posts_per_page' => 10,
           'order' => 'DESC',
+          'paged' => $paged
         );
+        $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
         $query = new WP_Query($args);
         while($query->have_posts()):$query->the_post();
         $name = explode('–', get_the_title())[0];
@@ -25,54 +27,51 @@
         $postid = get_the_ID();
         $perm_link = get_the_permalink();
         $thumb = get_the_post_thumbnail_url($postid);
-        $content_post = get_the_excerpt($postid);
-        $content = $content_post->post_content;
-        $content = apply_filters('the_content', $content);
-        $content = str_replace(']]>', ']]&gt;', $content);
+        $content = get_the_content(); 
 
         ?>
-          <div class="col-12 col-xl-6">
+          <div class="col-12 col-xl-6 box-podcast">
             <div  class="card-podcast" style="background-image:linear-gradient(173deg, rgba(225,225,220,0), rgba(0,0,0,0.4)), url('<?php echo $thumb; ?>');">
                 <a href=<?php echo $perm_link; ?>>
                   <p class="podcast-name"><?php echo $name; ?></p>
                   <p class="podcast-title"><?php echo $title; ?></p>
                 </a>
-
-                <?php if( $episode_content = get_the_powerpress_content() ){ // Player Powerpress  ?>
-                    <div class="content-powerpress-meta">
-                      <span class="player-buttons">
-                        <a download="" class="download" href="<?php
-                          $EpisodeData = powerpress_get_enclosure_data(get_the_ID(), 'podcast');
-                          $MediaURL = powerpress_add_flag_to_redirect_url($EpisodeData['url'], 'p');
-                          ?>" target="_blank">
-                          <i class="fas fa-download"></i> Baixar (<?php
-                          $EpisodeData = powerpress_get_enclosure_data(get_the_ID(), 'podcast');
-                          $MediaSize = powerpress_add_flag_to_redirect_url($EpisodeData['size'], '');
-                          echo number_format($MediaSize / (1024 * 1024), 1); ?>MB)
-                        </a>
-                      </span>
-                      <span class="player-buttons">
-                        <a title="Play" class='download play' data-podcast-id=<?php echo get_the_ID(); ?> >
-                          <i class="fas fa-play" aria-hidden="true"></i> Play
-                        </a>
-                      </span>
-                      <span class="player-buttons">
-                        <a class="download" href="https://miticamente.com.br/feed/podcast/feed.xml" target="_blank"><i class="fas fa-rss"></i> Assinar</a>
-                      </span>
-                    </div>
-                <?php } ?>
             </div>
           </div>
-          <div class="col-12 col-xl-6">
-            <div>
-              <?php
-                echo $content;
-              ?>
+          <div class="col-xl-6 d-none d-xl-flex  box-podcast">
+            <div class="podcast-content">
+              <p class="description-podcast">
+                <?php
+                  echo wp_filter_nohtml_kses( $content );
+                ?>
+              </p>
             </div>
           </div>
           <?php
-            endwhile; wp_reset_postdata();
-          ?>          
+            endwhile; 
+          ?>
+          <div class="col-12 pagination d-block text-center">
+            <?php 
+                echo paginate_links( array(
+                    'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
+                    'total'        => $query->max_num_pages,
+                    'current'      => max( 1, get_query_var( 'paged' ) ),
+                    'format'       => '?paged=%#%',
+                    'show_all'     => false,
+                    'type'         => 'plain',
+                    'end_size'     => 2,
+                    'mid_size'     => 1,
+                    'prev_next'    => true,
+                    'prev_text'    => sprintf( '<i class="fa fa-arrow-left" aria-hidden="true"></i>' ),
+                    'next_text'    => sprintf( '<i class="fa fa-arrow-right" aria-hidden="true"></i>' ),
+                    'add_args'     => false,
+                    'add_fragment' => '',
+                ) );
+            ?>
+          </div>
+          <?php 
+            wp_reset_postdata();
+          ?>
       </div><!--Fim Row-->
     </div><!--Fim Container-->
 
