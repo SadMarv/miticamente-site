@@ -101,7 +101,7 @@ $(document).ready(function(){
        }
         });
         
-      }) // contactForm click event end
+      }) // contactAjax click event end
 
       $(".btn-close").on("click", function(){
         pause();

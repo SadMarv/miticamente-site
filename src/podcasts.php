@@ -2,6 +2,7 @@
 ?>
 <!doctype html>
 <html lang="pt-br">
+  <?php wp_head(); ?>
   <?php get_header('new'); ?>
   <body class="home">
 
@@ -21,13 +22,14 @@
 
     <div class="container home">
       <div class="row pt-5">
-        <div class="col-8">
+        <div class="col-lg-8 col-6">
           <h1 class="title-podcasts">Podcasts</h1>
         </div>
-        <div class="col-4 pagination-top text-center">
+        <div class="col-lg-4 col-6 pagination-top text-center">
             <?php 
-                echo previous_posts_link('<i class="fa fa-chevron-left" aria-hidden="true"></i>');
-                echo next_posts_link( '<i class="fa fa-chevron-right" aria-hidden="true"></i>', $query->max_num_pages);
+              $max_pages = 0;
+                echo arrow_previous_link('<i class="fa fa-chevron-left" aria-hidden="true"></i>', $max_pages);
+                echo arrow_next_link( '<i class="fa fa-chevron-right" aria-hidden="true"></i>', $query->max_num_pages);
             ?>
         </div>
       </div><!--fim row-->
@@ -89,6 +91,7 @@
     </div><!--Fim Container-->
 
     <!-- Footer -->
+    <?php wp_footer(); ?>
     <?php get_footer('new') ?>
     <?php get_footer('scripts'); ?>
     <script src="<?php bloginfo('template_url');?>/static/scripts/podcasts.js"></script>

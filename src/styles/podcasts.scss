@@ -7,6 +7,14 @@ $position: 25px;
     font-family: bowlby, sans-serif;
     color: $primary;
     text-shadow: 2px 2px 2px #000;
+
+    @media (min-width:769px) and (max-width:1024px) {
+      font-size: 22px;
+    }
+  
+    @media (max-width:768px) {
+      font-size: 20px;
+    }
   }
   .box-podcast{
 
@@ -32,6 +40,22 @@ $position: 25px;
         i{
           margin: 25px;
         }
+
+        @media (min-width:769px) and (max-width:1024px) {
+          font-size: 20px;
+        }
+      
+        @media (max-width:768px) {
+          font-size: 18px;
+        }
+    }
+
+    .disabled{
+      color: #dddddd;
+      cursor: default;
+      i{
+        cursor: default;
+      }
     }
 
   }

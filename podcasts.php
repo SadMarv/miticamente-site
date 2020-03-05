@@ -1,5 +1,5 @@
 <?php /* Template Name: Podcasts Page */
-?> <!doctype html><html lang="pt-br"> <?php get_header('new'); ?> <body class="home"> <?php get_header('navbar') ?> <?php
+?> <!doctype html><html lang="pt-br"> <?php wp_head(); ?> <?php get_header('new'); ?> <body class="home"> <?php get_header('navbar') ?> <?php
         $args = array(
           'post_type' => 'post',
           'category_name'  => 'Podcasts',
@@ -9,9 +9,10 @@
         );
         $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
         $query = new WP_Query($args);
-    ?> <div class="container home"><div class="row pt-5"><div class="col-8"><h1 class="title-podcasts">Podcasts</h1></div><div class="col-4 pagination-top text-center"> <?php 
-                echo previous_posts_link('<i class="fa fa-chevron-left" aria-hidden="true"></i>');
-                echo next_posts_link( '<i class="fa fa-chevron-right" aria-hidden="true"></i>', $query->max_num_pages);
+    ?> <div class="container home"><div class="row pt-5"><div class="col-lg-8 col-6"><h1 class="title-podcasts">Podcasts</h1></div><div class="col-lg-4 col-6 pagination-top text-center"> <?php 
+              $max_pages = 0;
+                echo arrow_previous_link('<i class="fa fa-chevron-left" aria-hidden="true"></i>', $max_pages);
+                echo arrow_next_link( '<i class="fa fa-chevron-right" aria-hidden="true"></i>', $query->max_num_pages);
             ?> </div></div><div class="row"> <?php
             while($query->have_posts()):$query->the_post();
             $name = explode('–', get_the_title())[0];
@@ -42,4 +43,4 @@
                 ) );
             ?> </div> <?php 
             wp_reset_postdata();
-          ?> </div></div> <?php get_footer('new') ?> <?php get_footer('scripts'); ?> <script src="<?php bloginfo('template_url');?>/static/scripts/podcasts.js"></script></body></html>
+          ?> </div></div> <?php wp_footer(); ?> <?php get_footer('new') ?> <?php get_footer('scripts'); ?> <script src="<?php bloginfo('template_url');?>/static/scripts/podcasts.js"></script></body></html>

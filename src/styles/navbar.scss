@@ -60,8 +60,18 @@
         font-size: .8rem;
       }
     }
+    .nav-link__underline{
+      padding-bottom: 5px;
+      padding: 2px;
+      border-bottom: 2px solid #ffbf00;
+    }
     .nav-item{
       a{
+        padding-bottom: 5px;
+        -webkit-transition: all 200s linear;
+        -moz-transition: all 200ms linear;
+        -o-transition: all 200ms linear;
+        transition: all 200ms linear;
         &.mr-3{
           color:#FFFF;
           font-size: 25px;

@@ -2,6 +2,7 @@
 ?>
 <!doctype html>
 <html lang="pt-br">
+  <?php wp_head(); ?>
   <?php get_header('new'); ?>
   <body class="home">
 
@@ -87,6 +88,7 @@
 
 
     <!-- Footer -->
+    <?php wp_footer(); ?>
     <?php get_footer('new') ?>
     <?php get_footer('scripts'); ?>
     <script src="<?php bloginfo('template_url');?>/static/scripts/home.js"></script>
