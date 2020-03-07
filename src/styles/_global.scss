@@ -1,3 +1,6 @@
+body {
+  overflow-x:hidden;
+}
 .container{
 
   textarea:focus,
@@ -138,6 +141,9 @@
   //padding-top pattern
   .pt-9{
     padding-top: 9px;
+  }
+  .pt-10{
+    padding-top: 10px;
   }
   .pt-20{
     padding-top: 20px;
