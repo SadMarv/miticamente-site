@@ -8,8 +8,8 @@
         $thumb = get_the_post_thumbnail_url();
       ?>
 <?php 
-define('MITIC_TITLE','Miticamente Podcast- Cultura Pop, Filmes e RPG');
-define('MITIC_META_DESCRIPTION',$title);
+define('MITIC_TITLE',$title . ' - Miticamente Podcast');
+define('MITIC_META_DESCRIPTION', wp_trim_excerpt() );
 define('MITIC_META_IMG', $thumb);
 ?>
 <!doctype html>

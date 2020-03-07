@@ -1,7 +1,7 @@
 <head>
 <?php 
-define('MITIC_TITLE','Miticamente Podcast- Cultura Pop, Filmes e RPG');
-define('MITIC_META_DESCRIPTION','Unindo mitos na maneira mais ne que você já viu!');
+define('MITIC_TITLE','Miticamente Podcast- Cultura Pop, Nostalgia e RPG');
+define('MITIC_META_DESCRIPTION','Unindo mitos na maneira mais nerd que você já viu!');
 define('MITIC_META_IMG', get_site_icon_url());
 ?>
 
