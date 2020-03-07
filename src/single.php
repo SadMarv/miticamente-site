@@ -1,11 +1,5 @@
-<!doctype html>
-<html lang="pt-br">
-  <?php wp_head(); ?>
-  <?php get_header('new'); ?>
-  <body class="home">
 
-    <?php get_header('navbar') ?>
-      <?php
+<?php
       // Start the loop.
       while ( have_posts() ) : the_post();
         $postid = get_the_ID();
@@ -13,6 +7,19 @@
         $perm_link = get_the_permalink();
         $thumb = get_the_post_thumbnail_url();
       ?>
+<?php 
+define('MITIC_TITLE','Miticamente Podcast- Cultura Pop, Filmes e RPG');
+define('MITIC_META_DESCRIPTION',$title);
+define('MITIC_META_IMG', $thumb);
+?>
+<!doctype html>
+<html lang="pt-br">
+  <?php wp_head(); ?>
+  <?php get_header('new'); ?>
+  <body class="home">
+
+    <?php get_header('navbar') ?>
+      
 
     <div class="container ">
       <div class="row pt-5">
@@ -61,4 +68,5 @@
     <script src="<?php bloginfo('template_url');?>/static/scripts/podcasts.js"></script>
   </body>
 </html>
+
 
