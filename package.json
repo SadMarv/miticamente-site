@@ -32,7 +32,7 @@
     "gulp-uglify": "^3.0.1",
     "gulp-uglifycss": "^1.1.0",
     "gulp-util": "^3.0.8",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "jquery-mask-plugin": "^1.14.15",
     "popper.js": "^1.14.7",
     "pump": "^3.0.0",
