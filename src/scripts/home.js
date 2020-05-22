@@ -1,5 +1,20 @@
 $(document).ready(function(){
 
+  function showonlyone(thechosenone) {
+    $('.newboxes').each(function(index) {
+       if ($(this).attr("id") == thechosenone) {
+          $(this).show(200);
+       }
+       else {
+          $(this).hide(600);
+       }
+    });
+ }function SelectAll(id)
+ {
+     document.getElementById(id).focus();
+     document.getElementById(id).select();
+ }
+
   var audio = $("#podcast-audio")[0];
 
   function displayTime(e){

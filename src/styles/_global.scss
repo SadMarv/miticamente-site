@@ -1,8 +1,18 @@
 body {
   overflow-x:hidden;
 }
-.container{
 
+.container{
+  a img { border: none; }
+
+img { border: none; }
+
+a { border: none; }
+
+* {
+    outline: none;
+    border: none;
+}
   textarea:focus,
   textarea.form-control:focus,
   input.form-control:focus,

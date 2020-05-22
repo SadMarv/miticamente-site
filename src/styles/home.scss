@@ -2,40 +2,45 @@ $position: 25px;
 
 .container{
   &.home{
-    padding-bottom: 15px;;
+    padding-bottom: 15px;
     .card-podcast{
+      position: relative;
       margin-top: $position;
-      background-repeat: no-repeat;
-      background-position: center;
-      width: 490px;
-      height: 275px;
-      background-size: cover;
-      border-radius: 10px;
-      transition: 500ms;
-      //opacity: 4;
-      margin-left: auto;
-      margin-right: auto;
-      @media (max-width: 768px){
-        width: 280px;
-        height: 150px;
-
-      }
-      &:hover{
-        box-shadow: 0 14px 28px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .20);
+      
+      // // &:hover{
+        // //   box-shadow: 0 14px 28px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .20);
+        // //   transition: 500ms;
+        // //   //opacity: .9;
+        // // }
+        // &:hover .content-powerpress-player{
+          //   visibility: visible;
+          //   height: 40px;
+          //   transition: height 1s;
+          
+          // }
+          // &:hover .content-powerpress-meta{
+            //   visibility: visible;
+            //   height: 45px;
+            //   transition: height 1s;
+            
+            // }
+            
+            
+            
+      .img-podcast{
         transition: 500ms;
-        //opacity: .9;
-      }
-      &:hover .content-powerpress-player{
-        visibility: visible;
-        height: 40px;
-        transition: height 1s;
+        width: 100%;
+        height: 300px;
+        background-size: cover;
+        border-radius: 10px;
+        //opacity: 4;
+        
+        @media (max-width: 768px){
+          width: 280px;
+          height: 150px;
 
-      }
-      &:hover .content-powerpress-meta{
-        visibility: visible;
-        height: 45px;
-        transition: height 1s;
-
+        }
+        
       }
       .podcast-name{
         @include title(bowlby, 16px, $primary);
@@ -83,54 +88,57 @@ $position: 25px;
 
   /* Estilo dos botões */
   .content-powerpress-meta {
+      //position: absolute;
+      //z-index: 200;
       width: 100%;
       visibility: hidden;
       height: -40px;
       //transition: 250ms;
+      display:none;
 
       @media screen and (max-width:768px) {
         visibility: visible;
       }
-    }
-    span.player-buttons {
-      width:33.3346%;
-      float:left;
-      text-align:center;
-    }
-    span.player-buttons a.download,span.player-buttons.time>i.icon-time {
-      padding:10px 0;
-      display:block;
-      font-size:16.5px;
-      color:#fff
-    }
-    i.icon-rss {
-      margin-right:2px
-    }
-    .player-buttons:nth-child(1) {
-      background:#800;
-      border-top-left-radius: 10px;
-    }
-    .player-buttons:nth-child(2) {
-      background:#ac1911;
-    }
-    .player-buttons:nth-child(3) {
-      background:#d95500;
-      border-top-right-radius: 10px;
-    }
-    @media (min-width:769px) and (max-width:1024px) {
-      a.download i {
-        font-size:17px
+      span.player-buttons {
+        width:33.3346%;
+        float:left;
+        text-align:center;
       }
-      a.download {
-        font-size:0!important
+      span.player-buttons a.download,span.player-buttons.time>i.icon-time {
+        padding:10px 0;
+        display:block;
+        font-size:16.5px;
+        color:#fff
       }
-    }
-    @media (max-width:768px) {
-      a.download i {
-        font-size:12px
+      i.icon-rss {
+        margin-right:2px
       }
-      a.download {
-        font-size:0!important
+      .player-buttons:nth-child(1) {
+        background:#800;
+        border-top-left-radius: 10px;
+      }
+      .player-buttons:nth-child(2) {
+        background:#ac1911;
+      }
+      .player-buttons:nth-child(3) {
+        background:#d95500;
+        border-top-right-radius: 10px;
+      }
+      @media (min-width:769px) and (max-width:1024px) {
+        a.download i {
+          font-size:17px
+        }
+        a.download {
+          font-size:0!important
+        }
+      }
+      @media (max-width:768px) {
+        a.download i {
+          font-size:12px
+        }
+        a.download {
+          font-size:0!important
+        }
       }
     }
 
