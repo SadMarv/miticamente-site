@@ -34,9 +34,10 @@
                 <?php if( $episode_content = get_the_powerpress_content() ){ // Player Powerpress  ?>
                     <div class="content-powerpress-meta">
                       <span class="player-buttons">
-                        <a download="" class="download" href="<?php
+                        <a class="download" href="<?php
                           $EpisodeData = powerpress_get_enclosure_data(get_the_ID(), 'podcast');
                           $MediaURL = powerpress_add_flag_to_redirect_url($EpisodeData['url'], 'p');
+                          echo $MediaURL;
                           ?>" target="_blank">
                           <i class="fas fa-download"></i> Baixar (<?php
                           $EpisodeData = powerpress_get_enclosure_data(get_the_ID(), 'podcast');

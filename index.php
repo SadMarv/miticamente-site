@@ -13,9 +13,10 @@
         $postid = get_the_ID();
         $perm_link = get_the_permalink();
         $thumb = get_the_post_thumbnail_url($postid);
-        ?> <div class="col-12 col-xl-6"><div class="card-podcast" style="background-image:linear-gradient(173deg, rgba(225,225,220,0), rgba(0,0,0,0.4)), url('<?php echo $thumb; ?>');"><a href="<?php echo $perm_link; ?>"><p class="podcast-name"><?php echo $name; ?></p><p class="podcast-title"><?php echo $title; ?></p></a> <?php if( $episode_content = get_the_powerpress_content() ){ // Player Powerpress  ?> <div class="content-powerpress-meta"><span class="player-buttons"><a download="" class="download" href="<?php
+        ?> <div class="col-12 col-xl-6"><div class="card-podcast" style="background-image:linear-gradient(173deg, rgba(225,225,220,0), rgba(0,0,0,0.4)), url('<?php echo $thumb; ?>');"><a href="<?php echo $perm_link; ?>"><p class="podcast-name"><?php echo $name; ?></p><p class="podcast-title"><?php echo $title; ?></p></a> <?php if( $episode_content = get_the_powerpress_content() ){ // Player Powerpress  ?> <div class="content-powerpress-meta"><span class="player-buttons"><a class="download" href="<?php
                           $EpisodeData = powerpress_get_enclosure_data(get_the_ID(), 'podcast');
                           $MediaURL = powerpress_add_flag_to_redirect_url($EpisodeData['url'], 'p');
+                          echo $MediaURL;
                           ?>" target="_blank"><i class="fas fa-download"></i> Baixar (<?php
                           $EpisodeData = powerpress_get_enclosure_data(get_the_ID(), 'podcast');
                           $MediaSize = powerpress_add_flag_to_redirect_url($EpisodeData['size'], '');
