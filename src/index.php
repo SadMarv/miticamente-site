@@ -7,7 +7,21 @@
   <body class="home">
 
     <?php get_header('navbar') ?>
+    <div class="bg-podcast-image" style="display:none;" >
+        <div class="blur-podcast" style="background: url('https://uploads.jovemnerd.com.br/wp-content/uploads/2020/05/NC_726_Tim-Maia-Genio-Intenso_Giga-1210x544.jpg') center no-repeat; background-size:cover;">
+        </div>
+        <div class="container podcast">
+          <div class="row">
+            <div class="col-12">
+              <div class="box-image-podcast  text-center" >
+                <img class="image-podcast" src="" alt="<?php echo $title ?>">
+              </div>
+            </div>
+          </div><!--Fim Row-->
+        </div><!--Fim Container-->
+      </div><!--Fim bg-podcast-image-->
     <div class="container home">
+      
       <div class="row">
         <?php
         $args = array(

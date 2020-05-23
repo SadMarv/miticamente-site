@@ -1,5 +1,5 @@
 .navbar{
-  background-image: linear-gradient(17deg, #83c232 5%, #76bc1c) ;
+  background-image: linear-gradient(to bottom, #263a38, #0c1f1c);
   position: sticky;
   z-index: 999;
   top: 0px;
@@ -8,25 +8,26 @@
   &.navbar-adjust{
     margin-top: 0px;
     .new-navbar-logo {
-      background-image: url('../images/logo_only.png');
+      background-image: url('../images/logo_letra.png');
       background-position: center center;
       background-repeat: no-repeat;
       background-size: contain;
       overflow: hidden;
       height: 50px;
-      width: 90px;
+      width: 150px;
       display: block;
-      padding: 0;
+      padding: 5px;
+      margin-right: 15px;
 
       @media (max-width: 768px) {
         margin-right: 0px;
-        height: 30px;
-        width: 60px;
+        height: 50px;
+        width: 120px;
       }
       @media (min-width: 769px)and(max-width: 992px) {
         margin-right: 0px;
-        height: 45px;
-        width: 60px;
+        height: 50px;
+        width: 150px;
       }
     }
 
@@ -63,7 +64,7 @@
     .nav-link__underline{
       padding-bottom: 5px;
       padding: 2px;
-      border-bottom: 2px solid #ffbf00;
+      border-bottom: 2px solid $primary;;
     }
     .nav-item{
       a{
@@ -85,7 +86,7 @@
           
         }
         &.mr-3:hover{
-          color:rgb(21, 104, 19);
+          color:$primary;
         }
       }
       .separator{

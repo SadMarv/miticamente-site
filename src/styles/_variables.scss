@@ -12,7 +12,7 @@
   src: url('../fonts/Asap.woff2');
 }
 
-$primary: #76bc1c;
+$primary: #7dcf2f;
 
 $fa-font-path: '../fonts';
 
@@ -88,7 +88,7 @@ $fit-thumb-in-slider: -8px;
 
   &:hover {
     //color: #ffd106;
-    color: #E3F1D1;
+    color: $primary;;
     ;
   }
 }
