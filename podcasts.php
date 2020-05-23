@@ -21,7 +21,7 @@
             $perm_link = get_the_permalink();
             $thumb = get_the_post_thumbnail_url($postid);
             $content = get_the_content();
-          ?> <div class="col-12 col-xl-6 box-podcast"><div class="card-podcast" style="background-image:linear-gradient(173deg, rgba(225,225,220,0), rgba(0,0,0,0.4)), url('<?php echo $thumb; ?>');"><a href="<?php echo $perm_link; ?>"><p class="podcast-name"><?php echo $name; ?></p><p class="podcast-title"><?php echo $title; ?></p></a></div></div><div class="col-xl-6 d-none d-xl-flex box-podcast"><div class="podcast-content"><p class="description-podcast"> <?php
+          ?> <div class="col-12 col-xl-6 box-podcast"><div class="card-podcast"><a href="<?php echo $perm_link ?>"><div class="img-podcast" style="border-radius: 10px; background-image:linear-gradient(173deg, rgba(225,225,220,0), rgba(0,0,0,0.4)), url('<?php echo $thumb; ?>');"></div></a><a href="<?php echo $perm_link ?>"><p class="podcast-name"><?php echo $name; ?></p><p class="podcast-title"><?php echo $title; ?></p></a></div></div><div class="col-xl-6 d-none d-xl-flex box-podcast"><div class="podcast-content"><p class="description-podcast"> <?php
                   echo wp_filter_nohtml_kses( $content );
                 ?> </p></div></div> <?php
             endwhile; 
