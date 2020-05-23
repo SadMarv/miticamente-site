@@ -6,41 +6,28 @@ $position: 25px;
     .card-podcast{
       position: relative;
       margin-top: $position;
-      
-      // // &:hover{
-        // //   box-shadow: 0 14px 28px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .20);
-        // //   transition: 500ms;
-        // //   //opacity: .9;
-        // // }
-        // &:hover .content-powerpress-player{
-          //   visibility: visible;
-          //   height: 40px;
-          //   transition: height 1s;
-          
-          // }
-          // &:hover .content-powerpress-meta{
-            //   visibility: visible;
-            //   height: 45px;
-            //   transition: height 1s;
-            
-            // }
-            
-            
-            
+
       .img-podcast{
         transition: 500ms;
         width: 100%;
         height: 300px;
         background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
         border-radius: 10px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        margin-left: auto;
+        margin-right: auto;
         //opacity: 4;
         
-        @media (max-width: 768px){
-          width: 280px;
-          height: 150px;
-
+        @media (max-width:768px) {
+          width: 100%;
+          height: 170px;
+          border-bottom-left-radius: 0px;
+          border-bottom-right-radius: 0px;
         }
-        
+
       }
       .podcast-name{
         @include title(bowlby, 16px, $primary);
@@ -88,21 +75,22 @@ $position: 25px;
 
   /* Estilo dos botões */
   .content-powerpress-meta {
-      //position: absolute;
-      //z-index: 200;
+      z-index: 100;
       width: 100%;
-      visibility: hidden;
       height: -40px;
-      //transition: 250ms;
-      display:none;
 
       @media screen and (max-width:768px) {
-        visibility: visible;
+          width: 100%;
+          text-align: center;
+          position: relative;
+          margin-right: auto;
+          margin-left: auto;
       }
       span.player-buttons {
         width:33.3346%;
         float:left;
         text-align:center;
+
       }
       span.player-buttons a.download,span.player-buttons.time>i.icon-time {
         padding:10px 0;
@@ -113,16 +101,28 @@ $position: 25px;
       i.icon-rss {
         margin-right:2px
       }
-      .player-buttons:nth-child(1) {
+      .btn-baixar {
         background:#800;
-        border-top-left-radius: 10px;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 10px;
+
+        @media screen and (max-width:768px) {
+          border-top-left-radius: 0px;
+          border-bottom-left-radius: 10px;
+        }
       }
-      .player-buttons:nth-child(2) {
+      .btn-play {
         background:#ac1911;
       }
-      .player-buttons:nth-child(3) {
+      .btn-share {
         background:#d95500;
-        border-top-right-radius: 10px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 10px;
+
+        @media screen and (max-width:768px) {
+          border-top-right-radius: 0px;
+          border-bottom-right-radius: 10px;
+        }
       }
       @media (min-width:769px) and (max-width:1024px) {
         a.download i {
@@ -317,6 +317,3 @@ $position: 25px;
 .btn-close:hover{
   color: #76bc1c;
 }
-
-
-
