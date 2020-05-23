@@ -1,10 +1,35 @@
 $(document).ready(function(){
 
+  var statusId = 0;
+
+  $(document).click(function() {
+    $('.share-block').css( "display", "none" ).removeClass('opened').addClass('closed');
+    $('.btn-share').css("border-bottom-right-radius","10px");
+  });
+
+  $('.download').on("click", function(e){
+    e.stopPropagation();
+
+    var status = $(this).closest('div').find('.share-block');
+
+    if(status.hasClass('closed') ){
+      $('.share-block').css( "display", "none" ).removeClass('opened').addClass('closed');
+      status.css( "display", "block" ).removeClass('closed').addClass('opened');
+      $('.btn-share').css("border-bottom-right-radius","10px");
+      $(this).parent().css("border-bottom-right-radius","0");
+    } else {
+      status.css( "display", "none" ).removeClass('opened').addClass('closed');
+      $(this).parent().css("border-bottom-right-radius","10px");
+    }
+    
+
+  });
+
   function showonlyone(thechosenone) {
     $('.newboxes').each(function(index) {
        if ($(this).attr("id") == thechosenone) {
           $(this).show(200);
-       }
+        }
        else {
           $(this).hide(600);
        }

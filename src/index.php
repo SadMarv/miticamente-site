@@ -51,7 +51,16 @@
                         </a>
                       </span>
                       <span class="player-buttons btn-share">
-                        <a class="download" href="https://miticamente.com.br/feed/podcast/feed.xml" target="_blank"><i class="fas fa-rss"></i> Assinar</a>
+                        <a class="download" data-share-id=<?php echo get_the_ID(); ?>><i class="fa fa-share" aria-hidden="true"></i> Compartilhar</a>
+                        <div class="share-block closed" >
+                          <strong class="share-strong">Compartilhar</strong>
+                          <p class="share-title"><?php echo $name; ?> - <?php echo $title; ?></p>
+                          <div class="share-links">
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $perm_link; ?>" aria-label="Facebook share" target="_blank"><i class="fab fa-facebook"></i></a>
+                            <a href="https://twitter.com/intent/tweet?text=<?php echo $name; ?> - <?php echo $title; ?>&amp;url=<?php echo $perm_link; ?>&amp;" aria-label="Twitter share" target="_blank"><i class="fab fa-twitter-square"></i></a>
+                            <a href="https://api.whatsapp.com/send?text=<?php echo $name; ?> - <?php echo $title; ?> <?php echo $perm_link; ?>" aria-label="Whatsapp share" target="_blank"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                          </div>
+                        </div>
                       </span>
                                         
                     </div>

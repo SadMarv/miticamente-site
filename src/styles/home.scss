@@ -124,6 +124,52 @@ $position: 25px;
           border-bottom-right-radius: 10px;
         }
       }
+      .share-block{
+        background: lighten(#d95500, 10%);
+        position: absolute;
+        z-index: 200;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        width:33.3346%;
+        float:left;
+        text-align:center;
+        color:#fff;
+        display: none;
+      }
+      .share-strong{
+        @media (max-width:768px) {
+          font-size: 14px;
+      }
+      }
+      .share-title{
+        margin-left: 10px; 
+        margin-right: 10px; 
+        margin-bottom: 5px; 
+        text-align:left;
+
+        @media (max-width:768px) {
+            font-size: 12px;
+        }
+      }
+      .share-links{
+        margin: 5px;
+        a{
+          color:#fff; 
+          margin: 10px;
+
+          @media (max-width:768px) {
+            margin: 7px;
+          }
+
+          i{
+            font-size: 18px;
+
+            @media (max-width:768px) {
+              font-size: 14px;
+            }
+          }
+        }
+      }
       @media (min-width:769px) and (max-width:1024px) {
         a.download i {
           font-size:17px
