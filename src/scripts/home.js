@@ -7,7 +7,7 @@ $(document).ready(function(){
     $('.btn-share').css("border-bottom-right-radius","10px");
   });
 
-  $('.download').on("click", function(e){
+  $('.btn-share').on("click", function(e){
     e.stopPropagation();
 
     var status = $(this).closest('div').find('.share-block');
@@ -16,10 +16,10 @@ $(document).ready(function(){
       $('.share-block').css( "display", "none" ).removeClass('opened').addClass('closed');
       status.css( "display", "block" ).removeClass('closed').addClass('opened');
       $('.btn-share').css("border-bottom-right-radius","10px");
-      $(this).parent().css("border-bottom-right-radius","0");
+      $(this).css("border-bottom-right-radius","0");
     } else {
       status.css( "display", "none" ).removeClass('opened').addClass('closed');
-      $(this).parent().css("border-bottom-right-radius","10px");
+      $(this).css("border-bottom-right-radius","10px");
     }
     
 
