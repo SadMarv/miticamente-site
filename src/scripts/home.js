@@ -41,41 +41,48 @@ $(document).ready(function(){
  }
 
   var audio = $("#podcast-audio")[0];
-
+  $(".bar").attr("max", audio.duration);
   function displayTime(e){
 
     var newCurrentTime = 0;
+    console.log("audio.duration",audio.duration);
 
     // User moves the slider. Just update the audio currentTime.
     if(e.type=="input"){
 
       newCurrentTime = audio.duration * parseInt( $(".bar").val() ) / 100;
       audio.currentTime = newCurrentTime;
+
+      console.log("newCurrentTime",newCurrentTime);
     }
 
     // The audio plays. Move the slider.
     if(e.type=="timeupdate"){
-      newCurrentTime = audio.currentTime;        
-
+      newCurrentTime = audio.currentTime;  
+      
+      
       // Update the slider position
       var rangeSliderWidth = $(".rangeslider").width() - $(".rangeslider__handle").width();
       var audioPercent = audio.currentTime / audio.duration;
       var sliderPos = rangeSliderWidth*audioPercent;
+      
+      console.log('rengeslider',$(".rangeslider").width());
+      console.log('rangeslider__handle',$(".rangeslider__handle").width());
+      console.log('rangeSliderWidth',rangeSliderWidth);
+      
+      console.log('audioPercent',audioPercent);
+      console.log('sliderPos',sliderPos);
 
       // The "handle" and the green fill at its left.
-      $(".rangeslider__handle").css({"display":"none"});
-      $(".rangeslider__fill").css({"width":sliderPos});
-
-      //console.log("Width: " +$(".rangeslider").width());
+      $(".rangeslider__fill").css({"width":sliderPos + 10});
+      $(".rangeslider__handle").css({"left":sliderPos - 5});
 
     }
 
 
     // Display formatted time
-    var minutes = Math.floor(newCurrentTime/60);
-    var seconds = Math.floor(newCurrentTime%60);
-    if(seconds<10){seconds = "0"+seconds}
-    $("#status").text(minutes+":"+seconds);
+    var time = new Date(newCurrentTime * 1000).toISOString().substr(11, 8);
+    $("#status").text(time);
   }
 
 
@@ -85,6 +92,7 @@ $(document).ready(function(){
 
     onInit: function (){
       $(".rangeslider__fill").css({"width":'0px'});
+      $(".rangeslider__handle").css({"left":'0px'});
     },
   });
 
@@ -170,7 +178,8 @@ $(document).ready(function(){
           play();
         }
       })
-
       
 });
+
+ 
 

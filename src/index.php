@@ -8,7 +8,7 @@
 
     <?php get_header('navbar') ?>
     <div class="bg-podcast-image" style="display:none;" >
-        <div class="blur-podcast" style="background: url('https://uploads.jovemnerd.com.br/wp-content/uploads/2020/05/NC_726_Tim-Maia-Genio-Intenso_Giga-1210x544.jpg') center no-repeat; background-size:cover;">
+        <div class="blur-podcast" style="background: url('https://miticamente.com.br/wp-content/uploads/2020/05/Ep036_tinyhd.png') center no-repeat; background-size:cover;">
         </div>
         <div class="container podcast">
           <div class="row">
@@ -106,7 +106,7 @@
             <span class="podcast_name text-center">
               <p style="margin:unset"></p>
             </span>
-            <input type="range" min="0" max="100" step="1" class="bar" style="width:60%" value="0">
+            <input type="range" min="0" max="0" step="1" class="bar" style="width:100%" value="0">
             </input>
             <div id="status"></div>
           </div><!--Fim playback-bar-->

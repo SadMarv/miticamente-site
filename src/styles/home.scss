@@ -73,7 +73,7 @@ $position: 25px;
       display: none;
     }
 
-  /* Estilo dos botões */
+  /* Estilo dos botões do Player */
   .content-powerpress-meta {
       z-index: 100;
       width: 100%;
@@ -220,20 +220,19 @@ $position: 25px;
 }/* Fim container*/
 
 .podcast_player_wrapper{
-  padding: 30px;
+  padding: 15px;
 }
 .progress {
   margin:10px auto;
   padding:0;
-  width:60%;
-  height:40px;
+  width:45%;
   overflow:hidden;
   justify-self: center;
 
   .podcast_play{
     cursor: pointer;
     position:fixed;
-    bottom:46px;
+    bottom:19px;
     left:24%;
     margin:0;
     font-family:tahoma,arial,helvetica;
@@ -243,7 +242,6 @@ $position: 25px;
 
     @media screen and (max-width:768px) {
       left: 20%;
-      font-size:14px;
     }
   }
 
@@ -251,7 +249,7 @@ $position: 25px;
     position:fixed;
     margin:unset;
     float:left;
-    bottom:14px;
+    bottom:4px;
     font-family:tahoma,arial,helvetica;
     font-size:14px;
     z-index: 560;
@@ -265,22 +263,16 @@ $position: 25px;
 
   #status{
       position:fixed;
-      bottom:12px;
-      left:76%;
+      bottom:23px;
+      left:74%;
       margin:0;
       font-family:tahoma,arial,helvetica;
-      font-size:18px;
+      font-size:14px;
       z-index: 600;
       color: rgb(255, 255, 255);
 
-      @media screen and (max-width:768px) {
-        left: 70%;
-        font-size:14px;
-      }
-
       @media (max-width:576px) {
         left: 78%;
-        bottom:49px;
         font-size:12px;
       }
   }
@@ -302,25 +294,42 @@ $position: 25px;
       width: 100%;
     }
   }
-
   .rangeslider__handle{
-    display:none;
+    top:0;
+    height: 100%;
+    width: 20px;
+    background: #7ec323;
+    border-radius: 10px;
+    -moz-box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    -moz-border-radius: 15%;
+    -webkit-border-radius: 15%;
+    border-radius: 15%;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0.13)), color-stop(100%, rgba(56, 168, 28, 0.13)));
+    background-image: -moz-linear-gradient(rgba(56, 168, 28, 0.13), rgba(56, 168, 28, 0.13));
+    background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.13), rgba(56, 168, 28, 0.13));
+    background-image: linear-gradient(rgba(0, 0, 0, 0.13), rgba(56, 168, 28, 0.13));
+  }
+  .rangeslider__handle::after{
+    width: 0;
   }
 
   .rangeslider__fill{
     height: 100%;
-    background-image:linear-gradient(17deg, #76bc1c 5%, #e1f80c);
+    background: $primary;
     border-radius: unset;
-    z-index: 555;
+  }
+  .rangeslider__horizontal{
+    height: unset;
   }
 
 }
 
+
 .bar {
 	position:relative;
   float:left;
-  min-width:0%;
-  height:100%;
   
 }
 
