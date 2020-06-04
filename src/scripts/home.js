@@ -45,15 +45,12 @@ $(document).ready(function(){
   function displayTime(e){
 
     var newCurrentTime = 0;
-    console.log("audio.duration",audio.duration);
 
     // User moves the slider. Just update the audio currentTime.
     if(e.type=="input"){
 
       newCurrentTime = audio.duration * parseInt( $(".bar").val() ) / 100;
       audio.currentTime = newCurrentTime;
-
-      console.log("newCurrentTime",newCurrentTime);
     }
 
     // The audio plays. Move the slider.
@@ -66,16 +63,9 @@ $(document).ready(function(){
       var audioPercent = audio.currentTime / audio.duration;
       var sliderPos = rangeSliderWidth*audioPercent;
       
-      console.log('rengeslider',$(".rangeslider").width());
-      console.log('rangeslider__handle',$(".rangeslider__handle").width());
-      console.log('rangeSliderWidth',rangeSliderWidth);
-      
-      console.log('audioPercent',audioPercent);
-      console.log('sliderPos',sliderPos);
-
       // The "handle" and the green fill at its left.
       $(".rangeslider__fill").css({"width":sliderPos + 10});
-      $(".rangeslider__handle").css({"left":sliderPos - 5});
+      $(".rangeslider__handle").css({"left":sliderPos - 10});
 
     }
 
@@ -115,7 +105,6 @@ $(document).ready(function(){
     $(".player").css('display', 'block');
     e.preventDefault();
     var podcastId = $(this).data('podcast-id');
-    console.log('podcastId',podcastId);
     
     var path = window.location.href;
     var urlPodcast = path.substr(path.indexOf('media'));
@@ -128,56 +117,74 @@ $(document).ready(function(){
         'action': 'contactAjax',
         'data': podcastId
       },
+      beforeSend: function() {
+        pause();
+        $('.progress').css('display', 'none');
+        $('.place_loading').css('display', 'inline-block');
+      },
       success: function(response){
+        
         var url = response['url'];
         var duration = response['duration'];
         var name = response['name'];
         var title = response['title'];
         var urlHash = url.substr(url.indexOf('media')); 
         history.replaceState(null,'','#podcast='+url);
+
         
         if(urlHash != urlPodcast || isPlaying == false){
           $('.podcast-audio').attr('src', url);
           play();
           $(".podcast_name").children('p').text(name+' - '+ title);
-        } else {
-        }
-          },
-          error: function(errorThrown){
-            alert('error');
-            console.log(errorThrown);
-       }
-        });
+        } 
         
-      }) // contactAjax click event end
-
-      $(".btn-close").on("click", function(){
-        pause();
-        $(".player").css('display', 'none');
-      });
-
-      function play(){
-        isPlaying = true;
-       $('#podcast-audio').get(0).play();
-       $(".podcast_play").children('i').removeClass('fa fa-play').addClass('fa fa-pause');
+      },
+      error: function(errorThrown){
+        alert('error');
+        console.log(errorThrown);
+      },
+      complete: function(response){
+        $('.place_loading').css('display', 'none');
+        $('.progress').css('display', 'flex');
       }
-
-      function pause(){
-        isPlaying = false;
-        $('#podcast-audio').get(0).pause();
-        $(".podcast_play").children('i').removeClass('fa fa-pause').addClass('fa fa-play');
-      }
-
-      $(".podcast_play").on('click', function (e){
-        e.preventDefault();
+    });
         
-        
-        if(isPlaying){
-          pause();
-        } else {
-          play();
-        }
-      })
+  }) // contactAjax click event end
+
+  $(".btn-close").on("click", function(){
+    pause();
+    $(".player").css('display', 'none');
+  });
+
+  function play(){
+    isPlaying = true;
+    $('#podcast-audio').get(0).play();
+    $(".podcast_play").children('i').removeClass('fa fa-play').addClass('fa fa-pause');
+  }
+
+  function pause(){
+    isPlaying = false;
+    $('#podcast-audio').get(0).pause();
+    $(".podcast_play").children('i').removeClass('fa fa-pause').addClass('fa fa-play');
+  }
+
+    $('.podcast_forward').on("click", function () {
+      audio.currentTime += 15.0;
+    });
+
+    $('.podcast_backward').on("click", function () {
+      audio.currentTime -= 15.0;
+  });
+
+  $(".podcast_play").on('click', function (e){
+    e.preventDefault();
+    
+    if(isPlaying){
+      pause();
+    } else {
+      play();
+    }
+  })
       
 });
 

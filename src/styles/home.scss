@@ -244,6 +244,36 @@ $position: 25px;
       left: 20%;
     }
   }
+  .podcast_backward{
+    cursor: pointer;
+    position:fixed;
+    bottom:19px;
+    left:22%;
+    margin:0;
+    font-family:tahoma,arial,helvetica;
+    font-size:18px;
+    z-index: 600;
+    color: rgb(255, 255, 255);
+
+    @media screen and (max-width:768px) {
+      left: 20%;
+    }
+  }
+  .podcast_forward{
+    cursor: pointer;
+    position:fixed;
+    bottom:19px;
+    left:26%;
+    margin:0;
+    font-family:tahoma,arial,helvetica;
+    font-size:18px;
+    z-index: 600;
+    color: rgb(255, 255, 255);
+
+    @media screen and (max-width:768px) {
+      left: 20%;
+    }
+  }
 
   .podcast_name{
     position:fixed;
@@ -276,7 +306,6 @@ $position: 25px;
         font-size:12px;
       }
   }
-
   .rangeslider{
     height: 100%;
     background:#c5c2c2;
@@ -323,9 +352,13 @@ $position: 25px;
   .rangeslider__horizontal{
     height: unset;
   }
-
+  
 }
 
+.fa-pulse{
+  color: #FFF;
+  font-size: 25px;
+}
 
 .bar {
 	position:relative;

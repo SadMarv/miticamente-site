@@ -99,19 +99,31 @@
           <audio class="podcast-audio" id="podcast-audio" src=""> 
               <source class='podcast-audio' type="audio/mpeg" src=""> 
           </audio>
+
+          <div class="place_loading">
+            <i class="fa fa-spinner fa-pulse fa-3x fa-fw loading"></i>
+          </div>
+
           <div class="progress">
+          <span class="podcast_backward">
+              <i class="fa fa-backward" aria-hidden="true"></i>
+            </span>
             <span class="podcast_play">
               <i class="fa fa-play"></i>
+            </span>
+            <span class="podcast_forward">
+              <i class="fa fa-forward" aria-hidden="true"></i>
             </span>
             <span class="podcast_name text-center">
               <p style="margin:unset"></p>
             </span>
-            <input type="range" min="0" max="0" step="1" class="bar" style="width:100%" value="0">
+            <input type="range" min="0" max="0" step="1" class="bar" style="width:100%;" value="0">
             </input>
             <div id="status"></div>
           </div><!--Fim playback-bar-->
+
           <div class="btn btn-close">
-          <i class="fa fa-window-close" aria-hidden="true"></i>
+            <i class="fa fa-window-close" aria-hidden="true"></i>
           </div>
       </div><!--Fim podcast_player_wrapper-->
     </div><!--Fim player-->
