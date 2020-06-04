@@ -95,7 +95,7 @@
     </div><!--Fim Container-->
     <!-- Player-->
     <div class="col-12 text-center player">
-      <div class="podcast_player_wrapper"> 
+      <div class="podcast_player_wrapper desktop"> 
           <audio class="podcast-audio" id="podcast-audio" src=""> 
               <source class='podcast-audio' type="audio/mpeg" src=""> 
           </audio>
@@ -104,25 +104,51 @@
             <i class="fa fa-spinner fa-pulse fa-3x fa-fw loading"></i>
           </div>
 
-          <div class="progress">
-          <span class="podcast_backward">
+          <div class="box-buttons desktop">
+            <span class="podcast_backward podcast_btn">
               <i class="fa fa-backward" aria-hidden="true"></i>
             </span>
-            <span class="podcast_play">
+            <span class="podcast_play podcast_btn">
               <i class="fa fa-play"></i>
             </span>
-            <span class="podcast_forward">
+            <span class="podcast_forward podcast_btn">
               <i class="fa fa-forward" aria-hidden="true"></i>
             </span>
-            <span class="podcast_name text-center">
-              <p style="margin:unset"></p>
-            </span>
-            <input type="range" min="0" max="0" step="1" class="bar" style="width:100%;" value="0">
-            </input>
-            <div id="status"></div>
-          </div><!--Fim playback-bar-->
+          </div>
 
-          <div class="btn btn-close">
+          <div class="box-progress">
+
+            <div class="timer mobile"></div>
+
+            <div class="progress">
+              <input type="range" min="0" max="0" step="1" class="bar" style="width:100%;" value="0">
+              </input>
+            </div><!--Fim playback-bar-->
+
+            <span class="podcast_name text-left">
+              <p style="margin: unset;"></p>
+            </span>
+
+            <div class="box-buttons mobile">
+              <span class="podcast_backward podcast_btn">
+                <i class="fa fa-backward" aria-hidden="true"></i>
+              </span>
+              <span class="podcast_play podcast_btn">
+                <i class="fa fa-play"></i>
+              </span>
+              <span class="podcast_forward podcast_btn">
+                <i class="fa fa-forward" aria-hidden="true"></i>
+              </span>
+            </div>
+
+          </div>
+          <div class="timer desktop"></div>
+
+          <div class="btn btn-close mobile">
+            <i class="fa fa-window-close" aria-hidden="true"></i>
+          </div>
+
+          <div class="btn btn-close desktop">
             <i class="fa fa-window-close" aria-hidden="true"></i>
           </div>
       </div><!--Fim podcast_player_wrapper-->

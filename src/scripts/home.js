@@ -72,7 +72,7 @@ $(document).ready(function(){
 
     // Display formatted time
     var time = new Date(newCurrentTime * 1000).toISOString().substr(11, 8);
-    $("#status").text(time);
+    $(".timer").text(time);
   }
 
 
