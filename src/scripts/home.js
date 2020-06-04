@@ -65,7 +65,7 @@ $(document).ready(function(){
       
       // The "handle" and the green fill at its left.
       $(".rangeslider__fill").css({"width":sliderPos + 10});
-      $(".rangeslider__handle").css({"left":sliderPos - 10});
+      $(".rangeslider__handle").css({"left":sliderPos - 3});
 
     }
 
