@@ -117,6 +117,11 @@
           </div>
 
           <div class="box-progress">
+            <div class="box-btn-close mobile">
+              <div class="btn btn-close">
+                <i class="fa fa-window-close" aria-hidden="true"></i>
+              </div>
+            </div>
 
             <div class="timer mobile"></div>
 
@@ -144,13 +149,11 @@
           </div>
           <div class="timer desktop"></div>
 
-          <div class="btn btn-close mobile">
-            <i class="fa fa-window-close" aria-hidden="true"></i>
-          </div>
-
-          <div class="btn btn-close desktop">
-            <i class="fa fa-window-close" aria-hidden="true"></i>
-          </div>
+          <div class="box-btn-close desktop">
+              <div class="btn btn-close">
+                <i class="fa fa-window-close" aria-hidden="true"></i>
+              </div>
+            </div>
       </div><!--Fim podcast_player_wrapper-->
     </div><!--Fim player-->
     

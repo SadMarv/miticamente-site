@@ -245,20 +245,31 @@ $position: 25px;
     position: relative;
     display: flex;
 
+    @media screen and (max-width:768px) {
+      padding: 0px;
+    }
+
     .fa-pulse{
       color: #FFF;
       font-size: 25px;
     }
+
   
     .box-buttons{
-      padding: 10px;
-      padding-left: 30px;
+      padding: 5px;
+      padding-left: 20px;
       margin-top:5px;
       width: 8%;
+
+      @media (min-width:769px)and (max-width:1200px) {
+        padding-left: 5px;
+      }
       @media screen and (max-width:768px) {
+        width: 100%;
         padding: 2px;
         margin-top:0px;
-        float: left;
+        justify-content: space-between;
+        align-content: space-between;
       }
       .podcast_btn{
         padding: 5px;
@@ -269,8 +280,10 @@ $position: 25px;
         color: rgb(255, 255, 255);
 
         @media screen and (max-width:768px) {
+          padding: 0px;
           font-size: 12px;
-          padding: 2px;
+          align-items: center;
+          justify-content: center;
         }
        }
     }
@@ -282,8 +295,8 @@ $position: 25px;
       width: 82%;
 
       @media screen and (max-width:768px) {
-        padding: 2px;
         width: 100%;
+        padding:0px;
       }
       .progress {
         padding:0;
@@ -365,22 +378,32 @@ $position: 25px;
         justify-self: self-end;
       }
     }
-  
-    .btn-close{
-      right: 0;
-      top: 5px;
-      color: white;
-    
+
+    .box-btn-close{
+
       @media screen and (max-width:768px) {
-        font-size:9px;
-        padding:0px;
+        justify-content: flex-end;
+        align-content: flex-end;;
       }
 
+      .btn-close{
+        right: 0;
+        top: 5px;
+        color: white;
+      
+        @media screen and (max-width:768px) {
+          font-size:9px;
+          padding:0px;
+        }
+  
+      }
+      
+      .btn-close:hover{
+        color: #76bc1c;
+      }
     }
+  
     
-    .btn-close:hover{
-      color: #76bc1c;
-    }
   }
   
 }
